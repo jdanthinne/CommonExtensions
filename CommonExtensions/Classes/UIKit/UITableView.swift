@@ -19,6 +19,17 @@ extension UITableView {
         self.indexPathsForSelectedRows?.forEach({ self.deselectRow(at: $0, animated: true) })
     }
     
+    public func reloadData(withoutScroll scroll: Bool = false) {
+        if scroll {
+            reloadData()
+        } else {
+            let offset = contentOffset
+            reloadData()
+            layoutIfNeeded()
+            contentOffset = offset
+        }
+    }
+    
 }
 
 extension IndexPath {
