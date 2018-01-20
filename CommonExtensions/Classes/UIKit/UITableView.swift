@@ -23,13 +23,13 @@ extension UITableView {
 
 extension IndexPath {
 
-    public func isLastRow(inSection section: Int? = nil, in tableView: UITableView) -> Bool {
+    public func isLastRowOfSection(_ section: Int? = nil, in tableView: UITableView) -> Bool {
         let section = section ?? self.section
         return row + 1 == tableView.numberOfRows(inSection: section)
     }
     
-    public func isLastRow(of tableView: UITableView) -> Bool {
-        return self.section == tableView.numberOfSections - 1 && self.isLastRow(in: tableView)
+    public func isLastRowOfTableView(_ tableView: UITableView) -> Bool {
+        return self.section == tableView.numberOfSections - 1 && self.isLastRowOfSection(in: tableView)
     }
     
 }
