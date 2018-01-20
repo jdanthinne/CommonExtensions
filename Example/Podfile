@@ -1,0 +1,6 @@
+use_frameworks!
+target 'CommonExtensions_Tests' do
+  pod 'CommonExtensions', :path => '../'
+  
+  
+end
