@@ -15,4 +15,8 @@ extension UICollectionView {
         names.forEach({ self.register(UINib(nibName: $0, bundle: nil), forSupplementaryViewOfKind: kind, withReuseIdentifier: $0) })
     }
     
+    public func deselectSelectedItems(animated: Bool = true) {
+        indexPathsForSelectedItems?.forEach({ deselectItem(at: $0, animated: animated) })
+    }
+    
 }
