@@ -7,8 +7,14 @@
 
 extension String {
     
-    public func capitalizingFirstLetter() -> String {
-        return prefix(1).uppercased() + dropFirst()
+    public func capitalizingFirstLetter(lowercasingRemainingLetters: Bool = false) -> String {
+        var remainingLetters: String = String(dropFirst())
+        
+        if lowercasingRemainingLetters {
+            remainingLetters = remainingLetters.lowercased(with: Locale.current)
+        }
+        
+        return prefix(1).uppercased(with: Locale.current) + remainingLetters
     }
     
     public mutating func capitalizeFirstLetter() {
