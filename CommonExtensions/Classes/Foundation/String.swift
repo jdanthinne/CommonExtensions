@@ -1,5 +1,5 @@
 //
-//  i18n.swift
+//  String.swift
 //  CommonExtensions
 //
 //  Created by Jérôme Danthinne on 20/01/18.
