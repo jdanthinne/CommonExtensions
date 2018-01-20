@@ -5,18 +5,9 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
-extension UIColor {
-    
-    static let mainColor: UIColor = "#FC4831".toRGB
-    static let gray: UIColor = UIColor(white: 0.25, alpha: 1)
-    static let placeholderText: UIColor = UIColor(white: 0.4, alpha: 1)
-    static let masterSeparator = UIColor(white: 0.16, alpha: 1)
-    
-}
-
 extension String {
     
-    var toRGB: UIColor {
+    public var toRGB: UIColor {
         let hex = trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
         Scanner(string: hex).scanHexInt32(&int)
