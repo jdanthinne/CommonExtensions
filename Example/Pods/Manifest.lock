@@ -1,0 +1,16 @@
+PODS:
+  - CommonExtensions (0.1.0)
+
+DEPENDENCIES:
+  - CommonExtensions (from `../`)
+
+EXTERNAL SOURCES:
+  CommonExtensions:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CommonExtensions: dfd4d8aebbca2ebd926c53c60487707e13b2b4cd
+
+PODFILE CHECKSUM: 186c3eeb03dee37fd8f3718cb3e4663a3287b8d7
+
+COCOAPODS: 1.4.0
