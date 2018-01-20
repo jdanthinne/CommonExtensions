@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0FBB6A3B5DEE16EC7CEA5EAAECFC9159 /* Pods-CommonExtensions_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09856656F4A3976D25A8EBBB34F0221B /* Pods-CommonExtensions_Tests-dummy.m */; };
-		377B7B1220134513005152D3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1120134513005152D3 /* Color.swift */; };
+		377B7B1220134513005152D3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1120134513005152D3 /* UIColor.swift */; };
+		377B7B162013490E005152D3 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B152013490E005152D3 /* I18n.swift */; };
+		377B7B1820134985005152D3 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1720134985005152D3 /* UIButton.swift */; };
+		377B7B1A20134B94005152D3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1920134B94005152D3 /* Strings.swift */; };
 		71BE37B01EF772F4C4B55565DD2D58C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		7C89F20F6BEDAEC1E97B59CF81224FD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		B18FC887282A2DC9ABC16A89CAE30D7C /* CommonExtensions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 975DF5220AEF30067D80BDAF6F82E55C /* CommonExtensions-dummy.m */; };
@@ -35,7 +38,10 @@
 		29A648BEFD145F62E5456A607444995B /* Pods-CommonExtensions_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommonExtensions_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		2CBA90476BF861EF79CBED5EDA1D30C9 /* Pods_CommonExtensions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonExtensions_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36660DB79878ADD2F128357582CF1273 /* CommonExtensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CommonExtensions-prefix.pch"; sourceTree = "<group>"; };
-		377B7B1120134513005152D3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = CommonExtensions/Classes/Color.swift; sourceTree = "<group>"; };
+		377B7B1120134513005152D3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = CommonExtensions/Classes/UIColor.swift; sourceTree = "<group>"; };
+		377B7B152013490E005152D3 /* I18n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = I18n.swift; path = CommonExtensions/Classes/I18n.swift; sourceTree = "<group>"; };
+		377B7B1720134985005152D3 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = CommonExtensions/Classes/UIButton.swift; sourceTree = "<group>"; };
+		377B7B1920134B94005152D3 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strings.swift; path = CommonExtensions/Classes/Strings.swift; sourceTree = "<group>"; };
 		4357CA32C5B950B2A2870DB1C52A157F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47F8A167C7BCE18101EB5BF2ACC60928 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		65DE7D60F785629B52001C1DFC94305A /* CommonExtensions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CommonExtensions.xcconfig; sourceTree = "<group>"; };
@@ -127,7 +133,10 @@
 		A5CB753A9A3EFBE464C8DE669D174E57 /* CommonExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				377B7B1120134513005152D3 /* Color.swift */,
+				377B7B152013490E005152D3 /* I18n.swift */,
+				377B7B1920134B94005152D3 /* Strings.swift */,
+				377B7B1720134985005152D3 /* UIButton.swift */,
+				377B7B1120134513005152D3 /* UIColor.swift */,
 				238185756AE37E196FA857CE3DC1CF8A /* Pod */,
 				5E2D69AC84F5D19E81C9A2DE548BA647 /* Support Files */,
 			);
@@ -276,7 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B18FC887282A2DC9ABC16A89CAE30D7C /* CommonExtensions-dummy.m in Sources */,
-				377B7B1220134513005152D3 /* Color.swift in Sources */,
+				377B7B1220134513005152D3 /* UIColor.swift in Sources */,
+				377B7B1A20134B94005152D3 /* Strings.swift in Sources */,
+				377B7B162013490E005152D3 /* I18n.swift in Sources */,
+				377B7B1820134985005152D3 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
