@@ -17,8 +17,8 @@ extension String {
         return prefix(1).uppercased(with: Locale.current) + remainingLetters
     }
     
-    public mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
+    public mutating func capitalizeFirstLetter(lowercasingRemainingLetters: Bool = false) {
+        self = self.capitalizingFirstLetter(lowercasingRemainingLetters: lowercasingRemainingLetters)
     }
     
     public func sizeNeeded(inAvailableWidth width: CGFloat, withFont font: UIFont, withLineSpacing lineSpace: CGFloat = 0, withParagraphSpacing paragraphSpacing: CGFloat = 0, maxLines: Int = 0) -> CGRect {
