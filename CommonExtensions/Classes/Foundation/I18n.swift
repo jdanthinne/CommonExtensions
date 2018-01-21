@@ -50,8 +50,10 @@ extension String {
      
      :returns: The language name
      */
-    public var isoToLanguageName: String {
-        let locale = Locale(identifier: Locale.current.languageCode!)
+    public var languageNameFromISOCode: String? {
+        guard let currentLanguageCode = Locale.current.languageCode else { return nil }
+        
+        let locale = Locale(identifier: currentLanguageCode)
         return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
     }
     
@@ -60,7 +62,7 @@ extension String {
      
      :returns: The native language name
      */
-    public var isoToNativeLanguageName: String {
+    public var nativeLanguageNameFromISOCode: String {
         let locale = Locale(identifier: self)
         return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
     }
