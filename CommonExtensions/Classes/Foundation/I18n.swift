@@ -8,38 +8,58 @@
 extension String {
 
     /**
-     Return a localized string
+     Returns a localized string
      
-     :returns: No return value
+     :returns: The localized string
      */
     public var localized: String {
         return NSLocalizedString(self, comment: "")
     }
     
+    /**
+     Returns an uppercased localized string
+     
+     :returns: The localized string
+     */
     public var localizedUppercase: String {
         return self.localized.uppercased(with: Locale.current)
     }
     
+    /**
+     Returns a localized string using a replacement argument
+     
+     :returns: The localized string
+     */
     public func localizedWithArg(_ arg: String?) -> String {
         return String(format: localized, arg ?? "")
     }
     
     /**
-     Return a localized string with multiple arguments
+     Returns a localized string using multiple replacement arguments
      
-     :param: args   A list of arguments to be used as replacement in the localized string
+     :param: args   A list of arguments to be used as replacements in the localized string
      
-     :returns: A localized string
+     :returns: The localized string
      */
     public func localizedWithArgs(_ args: [String]) -> String {
         return String(format: localized, arguments: args)
     }
     
+    /**
+     Returns the language name corresponding to the ISO code, in the current language
+     
+     :returns: The language name
+     */
     public var isoToLanguageName: String {
         let locale = Locale(identifier: Locale.current.languageCode!)
         return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
     }
     
+    /**
+     Returns the language name corresponding to the ISO code, in its native language
+     
+     :returns: The native language name
+     */
     public var isoToNativeLanguageName: String {
         let locale = Locale(identifier: self)
         return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
