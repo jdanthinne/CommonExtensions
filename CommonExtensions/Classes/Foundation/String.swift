@@ -39,3 +39,11 @@ extension String {
     }
   
 }
+
+extension String.Index {
+    
+    public func advance(by offset: Int, for string: String) -> String.Index {
+        return string.index(self, offsetBy: offset)
+    }
+    
+}
