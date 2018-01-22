@@ -6,12 +6,12 @@
 //
 
 extension UIButton {
-    
+
     public func setTitleWithoutAnimation(title: String?) {
         UIView.setAnimationsEnabled(false)
         setTitle(title, for: .normal)
         layoutIfNeeded()
         UIView.setAnimationsEnabled(true)
     }
-    
+
 }

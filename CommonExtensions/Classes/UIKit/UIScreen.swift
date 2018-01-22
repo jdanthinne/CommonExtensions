@@ -6,7 +6,7 @@
 //
 
 extension UIScreen {
-    
+
     public static let oneDevicePixel = 1 / UIScreen.main.scale
-    
+
 }

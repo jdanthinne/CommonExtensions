@@ -6,22 +6,33 @@
 //
 
 extension UIPageViewController {
-    
-    public func setViewControllersSafely(_ viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)? = nil) {
+
+    public func setViewControllersSafely(_ viewControllers: [UIViewController]?,
+                                         direction: UIPageViewControllerNavigationDirection,
+                                         animated: Bool,
+                                         completion: ((Bool) -> Void)? = nil) {
         guard animated else {
-            self.setViewControllers(viewControllers, direction: direction, animated: false, completion: completion)
+            self.setViewControllers(viewControllers,
+                                    direction: direction,
+                                    animated: false,
+                                    completion: completion)
             return
         }
-        
-        self.setViewControllers(viewControllers, direction: direction, animated: true) { finished in
-            if finished {
-                DispatchQueue.main.async {
-                    self.setViewControllers(viewControllers, direction: direction, animated: false, completion: completion)
-                }
-            } else if let completion = completion {
-                completion(finished)
-            }
+
+        self.setViewControllers(viewControllers,
+                                direction: direction,
+                                animated: true) { finished in
+                                    if finished {
+                                        DispatchQueue.main.async {
+                                            self.setViewControllers(viewControllers,
+                                                                    direction: direction,
+                                                                    animated: false,
+                                                                    completion: completion)
+                                        }
+                                    } else if let completion = completion {
+                                        completion(finished)
+                                    }
         }
     }
-    
+
 }

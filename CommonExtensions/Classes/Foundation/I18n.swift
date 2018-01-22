@@ -15,7 +15,7 @@ extension String {
     public var localized: String {
         return NSLocalizedString(self, comment: "")
     }
-    
+
     /**
      Returns an uppercased localized string
      
@@ -24,7 +24,7 @@ extension String {
     public var localizedUppercase: String {
         return self.localized.uppercased(with: Locale.current)
     }
-    
+
     /**
      Returns a localized string using a replacement argument
      
@@ -33,7 +33,7 @@ extension String {
     public func localizedWithArg(_ arg: String?) -> String {
         return String(format: localized, arg ?? "")
     }
-    
+
     /**
      Returns a localized string using multiple replacement arguments
      
@@ -44,7 +44,7 @@ extension String {
     public func localizedWithArgs(_ args: [String]) -> String {
         return String(format: localized, arguments: args)
     }
-    
+
     /**
      Returns the language name corresponding to the ISO code, in the current language
      
@@ -52,11 +52,11 @@ extension String {
      */
     public var languageNameFromISOCode: String? {
         guard let currentLanguageCode = Locale.current.languageCode else { return nil }
-        
+
         let locale = Locale(identifier: currentLanguageCode)
         return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
     }
-    
+
     /**
      Returns the language name corresponding to the ISO code, in its native language
      
@@ -66,5 +66,5 @@ extension String {
         let locale = Locale(identifier: self)
         return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
     }
-    
+
 }
