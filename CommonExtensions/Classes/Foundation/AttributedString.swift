@@ -13,9 +13,9 @@ extension NSMutableAttributedString {
                           range: NSRange(location: location, length: length))
     }
 
-    public func setFontSize(value: CGFloat) {
+    public func setFont(value: UIFont) {
         self.addAttribute(.font,
-                          value: UIFont.systemFont(ofSize: value),
+                          value: value,
                           range: NSRange(location: 0, length: self.length))
     }
 
