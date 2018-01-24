@@ -7,27 +7,29 @@
 
 extension NSMutableAttributedString {
 
-    public func addBold(from location: Int = 0, length: Int, fontSize: CGFloat) {
+    public func addBold(from location: Int = 0, length: Int? = nil, fontSize: CGFloat) {
         self.addAttribute(.font,
                           value: UIFont.boldSystemFont(ofSize: fontSize),
-                          range: NSRange(location: location, length: length))
+                          range: NSRange(location: location, length: length ?? self.length))
     }
 
-    public func setFont(_ font: UIFont, from location: Int = 0, length: Int) {
+    public func setFont(_ font: UIFont, from location: Int = 0, length: Int? = nil) {
         self.addAttribute(.font,
                           value: font,
-                          range: NSRange(location: location, length: self.length))
+                          range: NSRange(location: location, length: length ?? self.length))
     }
 
     public func setParagraph(spacing: CGFloat = 0,
                              lineSpacing: CGFloat = 0,
                              lineHeightMultiple: CGFloat = 0,
                              alignment: NSTextAlignment = .natural) {
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
         paragraphStyle.paragraphSpacing = spacing
         paragraphStyle.alignment = alignment
         paragraphStyle.lineHeightMultiple = lineHeightMultiple
+        
         self.addAttribute(.paragraphStyle,
                           value: paragraphStyle,
                           range: NSRange(location: 0, length: self.length))
@@ -45,14 +47,10 @@ extension NSMutableAttributedString {
         self.setParagraph(lineHeightMultiple: lineHeight, alignment: alignment)
     }
 
-    public func setColor(_ color: UIColor, from location: Int = 0, length: Int) {
+    public func setColor(_ color: UIColor, from location: Int = 0, length: Int? = nil) {
         self.addAttribute(.foregroundColor,
                           value: color,
-                          range: NSRange(location: location, length: length))
-    }
-
-    public func setColor(_ color: UIColor) {
-        self.setColor(color, length: self.length)
+                          range: NSRange(location: location, length: length ?? self.length))
     }
 
 }
