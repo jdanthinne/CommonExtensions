@@ -54,7 +54,7 @@ extension String {
         guard let currentLanguageCode = Locale.current.languageCode else { return nil }
 
         let locale = Locale(identifier: currentLanguageCode)
-        return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
+        return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)
     }
 
     /**
@@ -62,9 +62,19 @@ extension String {
      
      :returns: The native language name
      */
-    public var nativeLanguageNameFromISOCode: String {
+    public var nativeLanguageNameFromISOCode: String? {
         let locale = Locale(identifier: self)
-        return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)!
+        return (locale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self)
     }
+    
+    /**
+     Returns the localized country name corresponding to the ISO code
+     
+     :returns: The localized country name
+     */
+    public var countryNameFromISOCode: String? {
+        return Locale.current.localizedString(forRegionCode: self)
+    }
+    
 
 }
