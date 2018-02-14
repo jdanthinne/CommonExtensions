@@ -12,26 +12,25 @@ extension UIPageViewController {
                                          animated: Bool,
                                          completion: ((Bool) -> Void)? = nil) {
         guard animated else {
-            self.setViewControllers(viewControllers,
-                                    direction: direction,
-                                    animated: false,
-                                    completion: completion)
+            DispatchQueue.main.async {
+                self.setViewControllers(viewControllers, direction: direction, animated: false, completion: completion)
+            }
             return
         }
 
-        self.setViewControllers(viewControllers,
-                                direction: direction,
-                                animated: true) { finished in
-                                    if finished {
-                                        DispatchQueue.main.async {
-                                            self.setViewControllers(viewControllers,
-                                                                    direction: direction,
-                                                                    animated: false,
-                                                                    completion: completion)
-                                        }
-                                    } else if let completion = completion {
-                                        completion(finished)
-                                    }
+        DispatchQueue.main.async {
+            self.setViewControllers(viewControllers, direction: direction, animated: true) { finished in
+                if finished {
+                    DispatchQueue.main.async {
+                        self.setViewControllers(viewControllers,
+                                                direction: direction,
+                                                animated: false,
+                                                completion: completion)
+                    }
+                } else if let completion = completion {
+                    completion(finished)
+                }
+            }
         }
     }
 
