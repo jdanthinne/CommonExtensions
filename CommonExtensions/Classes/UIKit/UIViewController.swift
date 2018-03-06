@@ -28,7 +28,7 @@ extension UIApplication {
 }
 
 @objc public protocol KeyboardChangesDelegate {
-    var keyboardChangesScrollView: UIScrollView { get }
+    @objc optional var keyboardChangesScrollView: UIScrollView { get }
     @objc optional var keyboardChangesInsetsWhenShown: UIEdgeInsets { get }
     @objc optional var keyboardChangesInsetsWhenHidden: UIEdgeInsets { get }
     @objc optional func keyboardChangesAdditionnalInsetsWhenShown() -> UIEdgeInsets
@@ -49,15 +49,17 @@ extension UIViewController {
     @objc func keyboardWillChangeFrame(_ notification: Notification) {
         if let delegate = self as? KeyboardChangesDelegate, let userInfo = notification.userInfo {
             if let keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
-                var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenShown?.top ?? 0) + delegate.keyboardChangesScrollView.contentInset.top,
-                                          left: (delegate.keyboardChangesInsetsWhenShown?.left ?? 0),
-                                          bottom: (delegate.keyboardChangesInsetsWhenShown?.bottom ?? 0) + keyboardHeight,
-                                          right: (delegate.keyboardChangesInsetsWhenShown?.right ?? 0))
-                
-                insets.add(delegate.keyboardChangesAdditionnalInsetsWhenShown?())
-                
-                delegate.keyboardChangesScrollView.contentInset = insets
-                delegate.keyboardChangesScrollView.scrollIndicatorInsets = insets
+                if let scrollView = delegate.keyboardChangesScrollView {
+                    var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenShown?.top ?? 0) + scrollView.contentInset.top,
+                                              left: (delegate.keyboardChangesInsetsWhenShown?.left ?? 0),
+                                              bottom: (delegate.keyboardChangesInsetsWhenShown?.bottom ?? 0) + keyboardHeight,
+                                              right: (delegate.keyboardChangesInsetsWhenShown?.right ?? 0))
+                    
+                    insets.add(delegate.keyboardChangesAdditionnalInsetsWhenShown?())
+                    
+                    scrollView.contentInset = insets
+                    scrollView.scrollIndicatorInsets = insets
+                }
                 
                 delegate.keyboardChangesDidChangeFrame?(keyboardHeight: keyboardHeight)
             }
@@ -66,15 +68,17 @@ extension UIViewController {
     
     @objc func keyboardWillBeHidden(_ notification: Notification) {
         if let delegate = self as? KeyboardChangesDelegate {
-            var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenHidden?.top ?? 0) + delegate.keyboardChangesScrollView.contentInset.top,
-                                      left: (delegate.keyboardChangesInsetsWhenHidden?.left ?? 0),
-                                      bottom: (delegate.keyboardChangesInsetsWhenHidden?.bottom ?? 0),
-                                      right: (delegate.keyboardChangesInsetsWhenHidden?.right ?? 0))
-            
-            insets.add(delegate.keyboardChangesAdditionnalInsetsWhenHidden?())
-            
-            delegate.keyboardChangesScrollView.contentInset = insets
-            delegate.keyboardChangesScrollView.scrollIndicatorInsets = insets
+            if let scrollView = delegate.keyboardChangesScrollView {
+                var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenHidden?.top ?? 0) + scrollView.contentInset.top,
+                                          left: (delegate.keyboardChangesInsetsWhenHidden?.left ?? 0),
+                                          bottom: (delegate.keyboardChangesInsetsWhenHidden?.bottom ?? 0),
+                                          right: (delegate.keyboardChangesInsetsWhenHidden?.right ?? 0))
+                
+                insets.add(delegate.keyboardChangesAdditionnalInsetsWhenHidden?())
+                
+                scrollView.contentInset = insets
+                scrollView.scrollIndicatorInsets = insets
+            }
             
             delegate.keyboardChangesDidHide?()
         }
