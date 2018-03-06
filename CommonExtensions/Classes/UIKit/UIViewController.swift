@@ -33,7 +33,7 @@ extension UIApplication {
     @objc optional var keyboardChangesInsetsWhenHidden: UIEdgeInsets { get }
     @objc optional func keyboardChangesAdditionnalInsetsWhenShown() -> UIEdgeInsets
     @objc optional func keyboardChangesAdditionnalInsetsWhenHidden() -> UIEdgeInsets
-    @objc optional func keyboardChangesDidChangeFrame()
+    @objc optional func keyboardChangesDidChangeFrame(keyboardHeight: CGFloat)
     @objc optional func keyboardChangesDidHide()
 }
 
@@ -59,7 +59,7 @@ extension UIViewController {
                 delegate.keyboardChangesScrollView.contentInset = insets
                 delegate.keyboardChangesScrollView.scrollIndicatorInsets = insets
                 
-                delegate.keyboardChangesDidChangeFrame?()
+                delegate.keyboardChangesDidChangeFrame?(keyboardHeight: keyboardHeight)
             }
         }
     }
