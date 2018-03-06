@@ -39,7 +39,7 @@ extension UIApplication {
 
 extension UIViewController {
     
-    func handleKeyboardChanges() {
+    public func handleKeyboardChanges() {
         if self is KeyboardChangesDelegate {
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: .UIKeyboardWillChangeFrame, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
