@@ -23,6 +23,7 @@
 		377B7B2E20135B9B005152D3 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B2D20135B9A005152D3 /* Array.swift */; };
 		378B670C20150B02002F4072 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670B20150B02002F4072 /* UIPageViewController.swift */; };
 		378B670E20150B46002F4072 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670D20150B46002F4072 /* AttributedString.swift */; };
+		37ED1AC5204EAA9D005C98EB /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED1AC4204EAA9D005C98EB /* UIEdgeInsets.swift */; };
 		71BE37B01EF772F4C4B55565DD2D58C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		7C89F20F6BEDAEC1E97B59CF81224FD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		B18FC887282A2DC9ABC16A89CAE30D7C /* CommonExtensions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 975DF5220AEF30067D80BDAF6F82E55C /* CommonExtensions-dummy.m */; };
@@ -64,6 +65,7 @@
 		377B7B2D20135B9A005152D3 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		378B670B20150B02002F4072 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		378B670D20150B46002F4072 /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		37ED1AC4204EAA9D005C98EB /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		4357CA32C5B950B2A2870DB1C52A157F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47F8A167C7BCE18101EB5BF2ACC60928 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		65DE7D60F785629B52001C1DFC94305A /* CommonExtensions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CommonExtensions.xcconfig; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				377B7B1720134985005152D3 /* UIButton.swift */,
 				377B7B292013569E005152D3 /* UICollectionView.swift */,
 				377B7B1120134513005152D3 /* UIColor.swift */,
+				37ED1AC4204EAA9D005C98EB /* UIEdgeInsets.swift */,
 				378B670B20150B02002F4072 /* UIPageViewController.swift */,
 				377B7B212013555B005152D3 /* UIScreen.swift */,
 				377B7B2720135686005152D3 /* UITableView.swift */,
@@ -368,6 +371,7 @@
 				377B7B20201354EE005152D3 /* Forms.swift in Sources */,
 				377B7B1820134985005152D3 /* UIButton.swift in Sources */,
 				377B7B1C20134E03005152D3 /* Math.swift in Sources */,
+				37ED1AC5204EAA9D005C98EB /* UIEdgeInsets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
