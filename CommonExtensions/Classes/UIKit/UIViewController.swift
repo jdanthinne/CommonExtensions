@@ -27,7 +27,7 @@ extension UIApplication {
 
 }
 
-@objc protocol KeyboardChangesDelegate {
+@objc public protocol KeyboardChangesDelegate {
     var keyboardChangesScrollView: UIScrollView { get }
     @objc optional var keyboardChangesInsetsWhenShown: UIEdgeInsets { get }
     @objc optional var keyboardChangesInsetsWhenHidden: UIEdgeInsets { get }
