@@ -52,7 +52,7 @@ extension UIViewController {
                 if let scrollView = delegate.keyboardChangesScrollView {
                     var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenShown?.top ?? 0) + scrollView.contentInset.top,
                                               left: (delegate.keyboardChangesInsetsWhenShown?.left ?? 0),
-                                              bottom: (delegate.keyboardChangesInsetsWhenShown?.bottom ?? 0) + keyboardHeight,
+                                              bottom: (delegate.keyboardChangesInsetsWhenShown?.bottom ?? 0) + keyboardHeight - (tabBarController?.tabBar.frame.size.height ?? 0),
                                               right: (delegate.keyboardChangesInsetsWhenShown?.right ?? 0))
                     
                     insets.add(delegate.keyboardChangesAdditionnalInsetsWhenShown?())
