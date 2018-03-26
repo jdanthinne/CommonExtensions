@@ -15,44 +15,44 @@ public class Alerts {
                            messageIsLocalized: Bool = false,
                            withMessageArgument messageArgument: String = "",
                            okButton: String = "OK",
+                           style: UIAlertControllerStyle = .alert,
+                           popoverSourceView: UIView? = nil,
+                           popoverBarButtonItem: UIBarButtonItem? = nil,
+                           popoverArrowDirections: UIPopoverArrowDirection = [.up],
                            confirm: (() -> Void)?) -> UIAlertController {
         
-        let title = titleIsLocalized ? alertTitle : alertTitle.localized
-        
-        var finalMessage: String?
-        if let message = message {
-            if messageIsLocalized {
-                finalMessage = message
-            }
-            else {
-                finalMessage = messageArgument != "" ? message.localizedWithArg(messageArgument) : message.localized
-            }
-        }
-        
-        let alert = UIAlertController(title: title, message: finalMessage, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: okButton.localized, style: .default, handler: { (action) -> Void in
-            if let confirm = confirm {
-                confirm()
-            }
-        }))
-        
-        return alert
+        return confirmAlert(title: alertTitle,
+                            titleIsLocalized: titleIsLocalized,
+                            message: message,
+                            messageIsLocalized: messageIsLocalized,
+                            withMessageArgument: messageArgument,
+                            button: okButton,
+                            preferredStyle: style,
+                            popoverSourceView: popoverSourceView,
+                            popoverBarButtonItem: popoverBarButtonItem,
+                            popoverArrowDirections: popoverArrowDirections,
+                            confirm: confirm,
+                            cancel: nil)
     }
     
     public class func confirmAlert(title alertTitle: String,
-                            withTitleArgument titleArgument: String = "",
-                            message: String?,
-                            messageIsLocalized: Bool = false,
-                            withMessageArgument messageArgument: String = "",
-                            button: String,
-                            withButtonArgument buttonArgument: String = "",
-                            buttonIsDestructive: Bool = false,
-                            cancelButton: String,
-                            preferredStyle: UIAlertControllerStyle = .alert,
-                            confirm: (() -> Void)?,
-                            cancel: (() -> Void)?) -> UIAlertController {
+                                   titleIsLocalized: Bool = false,
+                                   withTitleArgument titleArgument: String = "",
+                                   message: String?,
+                                   messageIsLocalized: Bool = false,
+                                   withMessageArgument messageArgument: String = "",
+                                   button: String,
+                                   withButtonArgument buttonArgument: String = "",
+                                   buttonIsDestructive: Bool = false,
+                                   cancelButton: String? = nil,
+                                   preferredStyle: UIAlertControllerStyle = .alert,
+                                   popoverSourceView: UIView? = nil,
+                                   popoverBarButtonItem: UIBarButtonItem? = nil,
+                                   popoverArrowDirections: UIPopoverArrowDirection = [.up],
+                                   confirm: (() -> Void)?,
+                                   cancel: (() -> Void)?) -> UIAlertController {
         
-        let finalTitle = titleArgument != "" ? alertTitle.localizedWithArg(titleArgument) : alertTitle.localized
+        let finalTitle = titleIsLocalized ? alertTitle : (titleArgument != "" ? alertTitle.localizedWithArg(titleArgument) : alertTitle.localized)
         
         var finalMessage: String?
         if let message = message {
@@ -67,11 +67,24 @@ public class Alerts {
         let buttonTitle = buttonArgument != "" ? button.localizedWithArg(buttonArgument) : button.localized
         
         let alert = UIAlertController(title: finalTitle, message: finalMessage, preferredStyle: preferredStyle)
-        alert.addAction(UIAlertAction(title: cancelButton.localized, style: .cancel, handler: { (action) -> Void in
-            if let cancel = cancel {
-                cancel()
-            }
-        }))
+        
+        if let sourceView = popoverSourceView {
+            alert.popoverPresentationController?.sourceView = sourceView
+            alert.popoverPresentationController?.sourceRect = CGRect(x: sourceView.frame.width / 2, y: 0, width: 1, height: 1)
+        }
+        else if let barButtonItem = popoverBarButtonItem {
+            alert.popoverPresentationController?.barButtonItem = barButtonItem
+        }
+        alert.popoverPresentationController?.permittedArrowDirections = popoverArrowDirections
+        
+        if let cancelButton = cancelButton {
+            alert.addAction(UIAlertAction(title: cancelButton.localized, style: .cancel, handler: { (action) -> Void in
+                if let cancel = cancel {
+                    cancel()
+                }
+            }))
+        }
+        
         alert.addAction(UIAlertAction(title: buttonTitle, style: buttonIsDestructive ? .destructive : .default, handler: { (action) -> Void in
             if let confirm = confirm {
                 confirm()
