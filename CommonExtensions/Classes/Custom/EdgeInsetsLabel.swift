@@ -9,13 +9,13 @@ import UIKit
 
 // From http://stackoverflow.com/questions/21167226/resizing-a-uilabel-to-accomodate-insets/21267507#21267507
 
-public class EdgeInsetsLabel: UILabel {
+open class EdgeInsetsLabel: UILabel {
     
     public var textInsets = UIEdgeInsets.zero {
         didSet { invalidateIntrinsicContentSize() }
     }
     
-    override public func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let insetRect = UIEdgeInsetsInsetRect(bounds, textInsets)
         let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
         let invertedInsets = UIEdgeInsets(top: -textInsets.top,
@@ -25,7 +25,7 @@ public class EdgeInsetsLabel: UILabel {
         return UIEdgeInsetsInsetRect(textRect, invertedInsets)
     }
     
-    override public func drawText(in rect: CGRect) {
+    override open func drawText(in rect: CGRect) {
         super.drawText(in: UIEdgeInsetsInsetRect(rect, textInsets))
     }
     
