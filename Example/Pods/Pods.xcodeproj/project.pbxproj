@@ -23,6 +23,8 @@
 		377B7B2E20135B9B005152D3 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B2D20135B9A005152D3 /* Array.swift */; };
 		378B670C20150B02002F4072 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670B20150B02002F4072 /* UIPageViewController.swift */; };
 		378B670E20150B46002F4072 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670D20150B46002F4072 /* AttributedString.swift */; };
+		3794E46A2068D72400F30C18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794E4682068D72400F30C18 /* Alerts.swift */; };
+		3794E46B2068D72400F30C18 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794E4692068D72400F30C18 /* EdgeInsetsLabel.swift */; };
 		37ED1AC5204EAA9D005C98EB /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED1AC4204EAA9D005C98EB /* UIEdgeInsets.swift */; };
 		71BE37B01EF772F4C4B55565DD2D58C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		7C89F20F6BEDAEC1E97B59CF81224FD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -65,6 +67,8 @@
 		377B7B2D20135B9A005152D3 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		378B670B20150B02002F4072 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		378B670D20150B46002F4072 /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		3794E4682068D72400F30C18 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		3794E4692068D72400F30C18 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
 		37ED1AC4204EAA9D005C98EB /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		4357CA32C5B950B2A2870DB1C52A157F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47F8A167C7BCE18101EB5BF2ACC60928 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -153,6 +157,16 @@
 			path = CommonExtensions/Classes/UIKit;
 			sourceTree = "<group>";
 		};
+		3794E4672068D6DE00F30C18 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				3794E4682068D72400F30C18 /* Alerts.swift */,
+				3794E4692068D72400F30C18 /* EdgeInsetsLabel.swift */,
+			);
+			name = Custom;
+			path = CommonExtensions/Classes/Custom;
+			sourceTree = "<group>";
+		};
 		5E2D69AC84F5D19E81C9A2DE548BA647 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +203,7 @@
 		A5CB753A9A3EFBE464C8DE669D174E57 /* CommonExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				3794E4672068D6DE00F30C18 /* Custom */,
 				377B7B2B20135AB3005152D3 /* Foundation */,
 				377B7B2C20135ABD005152D3 /* UIKit */,
 				238185756AE37E196FA857CE3DC1CF8A /* Pod */,
@@ -361,6 +376,7 @@
 				377B7B1220134513005152D3 /* UIColor.swift in Sources */,
 				377B7B26201355C8005152D3 /* UIView.swift in Sources */,
 				377B7B1E20135450005152D3 /* Date.swift in Sources */,
+				3794E46B2068D72400F30C18 /* EdgeInsetsLabel.swift in Sources */,
 				377B7B1A20134B94005152D3 /* String.swift in Sources */,
 				377B7B2820135686005152D3 /* UITableView.swift in Sources */,
 				377B7B2A2013569E005152D3 /* UICollectionView.swift in Sources */,
@@ -371,6 +387,7 @@
 				377B7B20201354EE005152D3 /* Forms.swift in Sources */,
 				377B7B1820134985005152D3 /* UIButton.swift in Sources */,
 				377B7B1C20134E03005152D3 /* Math.swift in Sources */,
+				3794E46A2068D72400F30C18 /* Alerts.swift in Sources */,
 				37ED1AC5204EAA9D005C98EB /* UIEdgeInsets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
