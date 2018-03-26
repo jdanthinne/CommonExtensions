@@ -38,7 +38,7 @@ extension String {
         let height: CGFloat = maxLines != 0 ? CGFloat(maxLines) * font.lineHeight : 0
 
         let spaceNeeded = NSString(string: self).boundingRect(with: CGSize(width: width, height: height),
-                                                              options: .usesLineFragmentOrigin,
+                                                              options: [.usesLineFragmentOrigin, .usesFontLeading],
                                                               attributes: attributes, context: nil)
 
         return spaceNeeded
