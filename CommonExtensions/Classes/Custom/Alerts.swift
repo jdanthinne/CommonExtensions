@@ -11,7 +11,7 @@ public class Alerts {
     
     public class func simpleAlert(title alertTitle: String,
                            titleIsLocalized: Bool = false,
-                           message: String?,
+                           message: String? = nil,
                            messageIsLocalized: Bool = false,
                            withMessageArgument messageArgument: String = "",
                            okButton: String = "OK",
@@ -19,7 +19,7 @@ public class Alerts {
                            popoverSourceView: UIView? = nil,
                            popoverBarButtonItem: UIBarButtonItem? = nil,
                            popoverArrowDirections: UIPopoverArrowDirection = [.up],
-                           confirm: (() -> Void)?) -> UIAlertController {
+                           confirm: (() -> Void)? = nil) -> UIAlertController {
         
         return confirmAlert(title: alertTitle,
                             titleIsLocalized: titleIsLocalized,
@@ -31,14 +31,13 @@ public class Alerts {
                             popoverSourceView: popoverSourceView,
                             popoverBarButtonItem: popoverBarButtonItem,
                             popoverArrowDirections: popoverArrowDirections,
-                            confirm: confirm,
-                            cancel: nil)
+                            confirm: confirm)
     }
     
-    public class func confirmAlert(title alertTitle: String?,
+    public class func confirmAlert(title alertTitle: String? = nil,
                                    titleIsLocalized: Bool = false,
                                    withTitleArgument titleArgument: String = "",
-                                   message: String?,
+                                   message: String? = nil,
                                    messageIsLocalized: Bool = false,
                                    withMessageArgument messageArgument: String = "",
                                    button: String,
@@ -49,8 +48,8 @@ public class Alerts {
                                    popoverSourceView: UIView? = nil,
                                    popoverBarButtonItem: UIBarButtonItem? = nil,
                                    popoverArrowDirections: UIPopoverArrowDirection = [.up],
-                                   confirm: (() -> Void)?,
-                                   cancel: (() -> Void)?) -> UIAlertController {
+                                   confirm: (() -> Void)? = nil,
+                                   cancel: (() -> Void)? = nil) -> UIAlertController {
         
         
         var finalTitle: String?
