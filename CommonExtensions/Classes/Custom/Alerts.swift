@@ -35,7 +35,7 @@ public class Alerts {
                             cancel: nil)
     }
     
-    public class func confirmAlert(title alertTitle: String,
+    public class func confirmAlert(title alertTitle: String?,
                                    titleIsLocalized: Bool = false,
                                    withTitleArgument titleArgument: String = "",
                                    message: String?,
@@ -52,7 +52,16 @@ public class Alerts {
                                    confirm: (() -> Void)?,
                                    cancel: (() -> Void)?) -> UIAlertController {
         
-        let finalTitle = titleIsLocalized ? alertTitle : (titleArgument != "" ? alertTitle.localizedWithArg(titleArgument) : alertTitle.localized)
+        
+        var finalTitle: String?
+        if let alertTitle = alertTitle {
+            if titleIsLocalized {
+                finalTitle = alertTitle
+            }
+            else {
+                finalTitle = titleArgument != "" ? alertTitle.localizedWithArg(titleArgument) : alertTitle.localized
+            }
+        }
         
         var finalMessage: String?
         if let message = message {
