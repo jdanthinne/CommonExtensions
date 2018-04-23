@@ -148,10 +148,11 @@ public class Alerts {
 
 extension UIAlertController {
     
-    public func present(in viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func present(in viewController: UIViewController, animated: Bool = true, tintColor: UIColor? = nil, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             viewController.present(self, animated: animated, completion: completion)
-            self.view.tintColor = viewController.view.tintColor
+            let color = tintColor ?? viewController.view.tintColor
+            self.view.tintColor = color
         }
     }
     
