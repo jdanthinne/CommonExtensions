@@ -21,17 +21,17 @@ public class Alerts {
                            popoverArrowDirections: UIPopoverArrowDirection = [.up],
                            confirm: (() -> Void)? = nil) -> UIAlertController {
         
-        return confirmAlert(title: alertTitle,
-                            titleIsLocalized: titleIsLocalized,
-                            message: message,
-                            messageIsLocalized: messageIsLocalized,
-                            withMessageArgument: messageArgument,
-                            button: okButton,
-                            preferredStyle: style,
-                            popoverSourceView: popoverSourceView,
-                            popoverBarButtonItem: popoverBarButtonItem,
-                            popoverArrowDirections: popoverArrowDirections,
-                            confirm: confirm)
+        return builder(title: alertTitle,
+                       titleIsLocalized: titleIsLocalized,
+                       message: message,
+                       messageIsLocalized: messageIsLocalized,
+                       withMessageArgument: messageArgument,
+                       button: okButton,
+                       preferredStyle: style,
+                       popoverSourceView: popoverSourceView,
+                       popoverBarButtonItem: popoverBarButtonItem,
+                       popoverArrowDirections: popoverArrowDirections,
+                       confirm: confirm)
     }
     
     public class func confirmAlert(title alertTitle: String? = nil,
@@ -50,6 +50,43 @@ public class Alerts {
                                    popoverArrowDirections: UIPopoverArrowDirection = [.up],
                                    confirm: (() -> Void)? = nil,
                                    cancel: (() -> Void)? = nil) -> UIAlertController {
+        
+        let cancelButton = cancelButton ?? "Cancel"
+        
+        return builder(title: alertTitle,
+                       titleIsLocalized: titleIsLocalized,
+                       withTitleArgument: titleArgument,
+                       message: message,
+                       messageIsLocalized: messageIsLocalized,
+                       withMessageArgument: messageArgument,
+                       button: button,
+                       withButtonArgument: buttonArgument,
+                       buttonIsDestructive: buttonIsDestructive,
+                       cancelButton: cancelButton,
+                       preferredStyle: preferredStyle,
+                       popoverSourceView: popoverSourceView,
+                       popoverBarButtonItem: popoverBarButtonItem,
+                       popoverArrowDirections: popoverArrowDirections,
+                       confirm: confirm,
+                       cancel: cancel)
+    }
+    
+    private class func builder(title alertTitle: String? = nil,
+                               titleIsLocalized: Bool = false,
+                               withTitleArgument titleArgument: String = "",
+                               message: String? = nil,
+                               messageIsLocalized: Bool = false,
+                               withMessageArgument messageArgument: String = "",
+                               button: String,
+                               withButtonArgument buttonArgument: String = "",
+                               buttonIsDestructive: Bool = false,
+                               cancelButton: String? = nil,
+                               preferredStyle: UIAlertControllerStyle = .alert,
+                               popoverSourceView: UIView? = nil,
+                               popoverBarButtonItem: UIBarButtonItem? = nil,
+                               popoverArrowDirections: UIPopoverArrowDirection = [.up],
+                               confirm: (() -> Void)? = nil,
+                               cancel: (() -> Void)? = nil) -> UIAlertController {
         
         
         var finalTitle: String?
