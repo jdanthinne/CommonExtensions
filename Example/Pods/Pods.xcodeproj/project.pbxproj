@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FBB6A3B5DEE16EC7CEA5EAAECFC9159 /* Pods-CommonExtensions_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09856656F4A3976D25A8EBBB34F0221B /* Pods-CommonExtensions_Tests-dummy.m */; };
+		37053E3420C7CB9A00C3141C /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37053E3320C7CB9900C3141C /* UIStackView.swift */; };
 		377B7B1220134513005152D3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1120134513005152D3 /* UIColor.swift */; };
 		377B7B162013490E005152D3 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B152013490E005152D3 /* I18n.swift */; };
 		377B7B1820134985005152D3 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1720134985005152D3 /* UIButton.swift */; };
@@ -52,6 +53,7 @@
 		29A648BEFD145F62E5456A607444995B /* Pods-CommonExtensions_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommonExtensions_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		2CBA90476BF861EF79CBED5EDA1D30C9 /* Pods_CommonExtensions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonExtensions_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36660DB79878ADD2F128357582CF1273 /* CommonExtensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CommonExtensions-prefix.pch"; sourceTree = "<group>"; };
+		37053E3320C7CB9900C3141C /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		377B7B1120134513005152D3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		377B7B152013490E005152D3 /* I18n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I18n.swift; sourceTree = "<group>"; };
 		377B7B1720134985005152D3 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				377B7B2720135686005152D3 /* UITableView.swift */,
 				377B7B25201355C8005152D3 /* UIView.swift */,
 				377B7B232013558C005152D3 /* UIViewController.swift */,
+				37053E3320C7CB9900C3141C /* UIStackView.swift */,
 			);
 			name = UIKit;
 			path = CommonExtensions/Classes/UIKit;
@@ -360,6 +363,7 @@
 				377B7B26201355C8005152D3 /* UIView.swift in Sources */,
 				377B7B1E20135450005152D3 /* Date.swift in Sources */,
 				3794E46B2068D72400F30C18 /* EdgeInsetsLabel.swift in Sources */,
+				37053E3420C7CB9A00C3141C /* UIStackView.swift in Sources */,
 				377B7B1A20134B94005152D3 /* String.swift in Sources */,
 				377B7B2820135686005152D3 /* UITableView.swift in Sources */,
 				377B7B2A2013569E005152D3 /* UICollectionView.swift in Sources */,
@@ -590,7 +594,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CommonExtensions/CommonExtensions-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CommonExtensions/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/CommonExtensions/CommonExtensions.modulemap";
 				PRODUCT_NAME = CommonExtensions;
@@ -621,7 +625,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CommonExtensions/CommonExtensions-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CommonExtensions/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/CommonExtensions/CommonExtensions.modulemap";
 				PRODUCT_NAME = CommonExtensions;
