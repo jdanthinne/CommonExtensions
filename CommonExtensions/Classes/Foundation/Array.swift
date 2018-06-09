@@ -27,7 +27,7 @@ extension Sequence {
     /// Returns an array with the contents of this sequence, shuffled.
     public func legacyShuffled() -> [Iterator.Element] {
         var result = Array(self)
-        result.shuffle()
+        result.legacyShuffle()
         return result
     }
 
