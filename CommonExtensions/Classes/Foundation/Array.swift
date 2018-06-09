@@ -8,7 +8,7 @@
 extension MutableCollection {
 
     /// Shuffles the contents of this collection.
-    public mutating func shuffle() {
+    public mutating func legacyShuffle() {
         let c = count
         guard c > 1 else { return }
 
@@ -25,7 +25,7 @@ extension MutableCollection {
 extension Sequence {
 
     /// Returns an array with the contents of this sequence, shuffled.
-    public func shuffled() -> [Iterator.Element] {
+    public func legacyShuffled() -> [Iterator.Element] {
         var result = Array(self)
         result.shuffle()
         return result
