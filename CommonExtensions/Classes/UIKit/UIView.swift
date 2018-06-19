@@ -7,9 +7,10 @@
 
 extension UIView {
 
-    public func setBorder(color: UIColor, width: CGFloat = UIScreen.oneDevicePixel) {
+    public func setBorder(color: UIColor, width: CGFloat = UIScreen.oneDevicePixel, radius: CGFloat = 0) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
+        layer.cornerRadius = radius
     }
 
     public func addRoundedBorder(color: UIColor,
