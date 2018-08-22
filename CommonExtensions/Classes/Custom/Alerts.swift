@@ -142,10 +142,13 @@ public class Alerts {
     }
     
     public class func passwordAlert(title: String, message: String, confirm: @escaping (_ value: String) -> Void) -> UIAlertController {
-        return promptAlert(title: title, message: message, placeholder: "ACCESS_CODE".localized, textFieldConfiguration: { (textField) in
-            textField.isSecureTextEntry = true
-        }, success: { password in
-            confirm(password)
+        return promptAlert(title: title,
+                           message: message,
+                           placeholder: "ACCESS_CODE".localized,
+                           validationRule: .nonEmpty,
+                           textFieldConfiguration: { $0.isSecureTextEntry = true },
+                           success: { password in
+                            confirm(password)
         })
     }
     
@@ -153,7 +156,7 @@ public class Alerts {
                                   message: String,
                                   placeholder: String?,
                                   actionTitle: String = "Ok",
-                                  validationRule: String.ValidationRule = .nonEmpty,
+                                  validationRule: String.ValidationRule,
                                   textFieldConfiguration: ((UITextField) -> Void)? = nil,
                                   success: @escaping (_ title: String) -> Void) -> UIAlertController {
         
