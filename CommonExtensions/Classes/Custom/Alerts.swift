@@ -130,37 +130,90 @@ public class Alerts {
             }))
         }
         
-        alert.addAction(UIAlertAction(title: buttonTitle, style: buttonIsDestructive ? .destructive : .default, handler: { (action) -> Void in
+        let mainAction = UIAlertAction(title: buttonTitle, style: buttonIsDestructive ? .destructive : .default, handler: { (action) -> Void in
             if let confirm = confirm {
                 confirm()
             }
-        }))
+        })
+        alert.addAction(mainAction)
+        alert.preferredAction = mainAction
         
         return alert
     }
     
-    public class func passwordAlert(title alertTitle: String, message: String?, confirm: ((_ value: String) -> Void)?, cancel: (() -> Void)?) -> UIAlertController {
-        var finalMessage: String?
-        if let message = message {
-            finalMessage = message.localized
-        }
-        let alert = UIAlertController(title: alertTitle.localized, message: finalMessage, preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addTextField { textField in
-            textField.placeholder = "ACCESS_CODE".localized
+    public class func passwordAlert(title: String, message: String, confirm: @escaping (_ value: String) -> Void) -> UIAlertController {
+        return promptAlert(title: title, message: message, placeholder: "ACCESS_CODE".localized, textFieldConfiguration: { (textField) in
             textField.isSecureTextEntry = true
+        }, success: { password in
+            confirm(password)
+        })
+    }
+    
+    public class func promptAlert(title: String,
+                                  message: String,
+                                  placeholder: String?,
+                                  actionTitle: String = "Ok",
+                                  validationRule: String.ValidationRule = .nonEmpty,
+                                  textFieldConfiguration: ((UITextField) -> Void)? = nil,
+                                  success: @escaping (_ title: String) -> Void) -> UIAlertController {
+        
+        class TextFieldObserver: NSObject, UITextFieldDelegate {
+            let textFieldValueChanged: (UITextField) -> Void
+            let textFieldShouldReturn: (UITextField) -> Bool
+            
+            init(textField: UITextField, valueChanged: @escaping (UITextField) -> Void, shouldReturn: @escaping (UITextField) -> Bool) {
+                self.textFieldValueChanged = valueChanged
+                self.textFieldShouldReturn = shouldReturn
+                super.init()
+                textField.delegate = self
+                textField.addTarget(self, action: #selector(TextFieldObserver.textFieldValueChanged(sender:)), for: .editingChanged)
+            }
+            
+            @objc func textFieldValueChanged(sender: UITextField) {
+                textFieldValueChanged(sender)
+            }
+            
+            // MARK: UITextFieldDelegate
+            func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+                return textFieldShouldReturn(textField)
+            }
         }
         
-        alert.addAction(UIAlertAction(title: "ACTION_CANCEL".localized, style: .cancel, handler: { (action) -> Void in
-            if let cancel = cancel {
-                cancel()
+        var textFieldObserver: TextFieldObserver?
+        
+        let alert = UIAlertController(title: title.localized, message: message.localized, preferredStyle: .alert)
+        
+        let mainAction = UIAlertAction(title: actionTitle.localized, style: .default, handler: { _ in
+            guard let title = alert.textFields?.first?.text else { return }
+            if textFieldObserver != nil {
+                textFieldObserver = nil
+            }
+            success(title)
+        })
+        alert.addAction(mainAction)
+        alert.preferredAction = mainAction
+        
+        alert.addAction(UIAlertAction(title: "ACTION_CANCEL".localized, style: .cancel, handler: { _ in
+            if textFieldObserver != nil {
+                textFieldObserver = nil
             }
         }))
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
-            if let confirm = confirm, let textFields = alert.textFields, let textField = textFields.first {
-                confirm(textField.text!)
-            }
-        }))
+        
+        alert.addTextField(configurationHandler: { textField in
+            textFieldConfiguration?(textField)
+            textField.placeholder = placeholder?.localized
+            
+            textFieldObserver = TextFieldObserver(textField: textField,
+                                                  valueChanged: { textField in
+                                                    mainAction.isEnabled = (textField.text ?? "").isValid(rule: validationRule)
+            },
+                                                  shouldReturn: { textField in
+                                                    (textField.text ?? "").isValid(rule: validationRule)
+            })
+        })
+        
+        mainAction.isEnabled = (alert.textFields?.first?.text ?? "").isValid(rule: validationRule)
+        
         return alert
     }
     
