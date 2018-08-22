@@ -141,15 +141,14 @@ public class Alerts {
         return alert
     }
     
-    public class func passwordAlert(title: String, message: String, confirm: @escaping (_ value: String) -> Void) -> UIAlertController {
+    public class func passwordAlert(title: String, message: String, submit: @escaping (_ value: String) -> Void, cancel: (() -> Void)? = nil) -> UIAlertController {
         return promptAlert(title: title,
                            message: message,
                            placeholder: "ACCESS_CODE".localized,
                            validationRule: .nonEmpty,
                            textFieldConfiguration: { $0.isSecureTextEntry = true },
-                           success: { password in
-                            confirm(password)
-        })
+                           submit: { submit($0) },
+                           cancel: cancel)
     }
     
     public class func promptAlert(title: String,
@@ -158,7 +157,8 @@ public class Alerts {
                                   actionTitle: String = "Ok",
                                   validationRule: String.ValidationRule,
                                   textFieldConfiguration: ((UITextField) -> Void)? = nil,
-                                  success: @escaping (_ title: String) -> Void) -> UIAlertController {
+                                  submit: @escaping (_ value: String) -> Void,
+                                  cancel: (() -> Void)? = nil) -> UIAlertController {
         
         class TextFieldObserver: NSObject, UITextFieldDelegate {
             let textFieldValueChanged: (UITextField) -> Void
@@ -191,7 +191,7 @@ public class Alerts {
             if textFieldObserver != nil {
                 textFieldObserver = nil
             }
-            success(title)
+            submit(title)
         })
         alert.addAction(mainAction)
         alert.preferredAction = mainAction
@@ -200,6 +200,7 @@ public class Alerts {
             if textFieldObserver != nil {
                 textFieldObserver = nil
             }
+            cancel?()
         }))
         
         alert.addTextField(configurationHandler: { textField in
