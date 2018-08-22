@@ -15,7 +15,6 @@
 		377B7B1A20134B94005152D3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1920134B94005152D3 /* String.swift */; };
 		377B7B1C20134E03005152D3 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1B20134E03005152D3 /* Math.swift */; };
 		377B7B1E20135450005152D3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1D20135450005152D3 /* Date.swift */; };
-		377B7B20201354EE005152D3 /* Forms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1F201354EE005152D3 /* Forms.swift */; };
 		377B7B222013555B005152D3 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B212013555B005152D3 /* UIScreen.swift */; };
 		377B7B242013558C005152D3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B232013558C005152D3 /* UIViewController.swift */; };
 		377B7B26201355C8005152D3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B25201355C8005152D3 /* UIView.swift */; };
@@ -60,7 +59,6 @@
 		377B7B1920134B94005152D3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		377B7B1B20134E03005152D3 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		377B7B1D20135450005152D3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		377B7B1F201354EE005152D3 /* Forms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms.swift; sourceTree = "<group>"; };
 		377B7B212013555B005152D3 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		377B7B232013558C005152D3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		377B7B25201355C8005152D3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				377B7B2D20135B9A005152D3 /* Array.swift */,
 				378B670D20150B46002F4072 /* AttributedString.swift */,
 				377B7B1D20135450005152D3 /* Date.swift */,
-				377B7B1F201354EE005152D3 /* Forms.swift */,
 				377B7B152013490E005152D3 /* I18n.swift */,
 				377B7B1B20134E03005152D3 /* Math.swift */,
 				377B7B1920134B94005152D3 /* String.swift */,
@@ -371,7 +368,6 @@
 				377B7B222013555B005152D3 /* UIScreen.swift in Sources */,
 				377B7B2E20135B9B005152D3 /* Array.swift in Sources */,
 				377B7B162013490E005152D3 /* I18n.swift in Sources */,
-				377B7B20201354EE005152D3 /* Forms.swift in Sources */,
 				377B7B1820134985005152D3 /* UIButton.swift in Sources */,
 				377B7B1C20134E03005152D3 /* Math.swift in Sources */,
 				3794E46A2068D72400F30C18 /* Alerts.swift in Sources */,

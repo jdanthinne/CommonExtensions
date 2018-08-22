@@ -6,6 +6,37 @@
 //
 
 extension String {
+    
+    public enum ValidationRule {
+        /// Any input is valid, including an empty string.
+        case noRestriction
+        /// The input must not be empty.
+        case nonEmpty
+        /// The input must be a valid email address.
+        case email
+        /// The enitre input must match a regular expression. A matching substring is not enough.
+        case regularExpression(NSRegularExpression)
+        /// The input is valid if the predicate function returns `true`.
+        case predicate((String) -> Bool)
+    }
+    
+    public func isValid(rule: String.ValidationRule) -> Bool {
+        switch rule {
+        case .noRestriction:
+            return true
+        case .nonEmpty:
+            return !self.isEmpty
+        case .email:
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            return emailTest.evaluate(with: self)
+        case .regularExpression(let regex):
+            let fullNSRange = NSRange(self.startIndex..., in: self)
+            return regex.rangeOfFirstMatch(in: self, options: .anchored, range: fullNSRange) == fullNSRange
+        case .predicate(let p):
+            return p(self)
+        }
+    }
 
     public func capitalizingFirstLetter(lowercasingRemainingLetters: Bool = false) -> String {
         var remainingLetters: String = String(dropFirst())
