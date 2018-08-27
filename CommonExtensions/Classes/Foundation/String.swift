@@ -74,6 +74,13 @@ extension String {
 
         return spaceNeeded
     }
+    
+    public func stripTags() -> String {
+        return self
+            .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+            .replacingOccurrences(of: "&nbsp;", with: "")
+            .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
 
 }
 
