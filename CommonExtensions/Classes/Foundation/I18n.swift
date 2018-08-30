@@ -41,8 +41,8 @@ extension String {
      
      :returns: The localized string
      */
-    public func localizedWithArgs(_ args: [String]) -> String {
-        return String(format: localized, arguments: args)
+    public func localizedWithArgs(_ args: [String?]) -> String {
+        return String(format: localized, arguments: args.map({ $0 ?? "" }))
     }
 
     /**
