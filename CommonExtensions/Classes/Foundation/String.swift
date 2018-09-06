@@ -52,6 +52,7 @@ extension String {
         self = self.capitalizingFirstLetter(lowercasingRemainingLetters: lowercasingRemainingLetters)
     }
 
+    #if os(iOS)
     public func sizeNeeded(inAvailableWidth width: CGFloat,
                            withFont font: UIFont,
                            withLineSpacing lineSpace: CGFloat = 0,
@@ -74,6 +75,7 @@ extension String {
 
         return spaceNeeded
     }
+    #endif
     
     public func stripTags() -> String {
         return self

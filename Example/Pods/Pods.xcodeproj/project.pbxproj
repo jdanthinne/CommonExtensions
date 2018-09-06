@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		0FBB6A3B5DEE16EC7CEA5EAAECFC9159 /* Pods-CommonExtensions_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09856656F4A3976D25A8EBBB34F0221B /* Pods-CommonExtensions_Tests-dummy.m */; };
 		37053E3420C7CB9A00C3141C /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37053E3320C7CB9900C3141C /* UIStackView.swift */; };
+		3726702721410BD800A8A2EB /* CommonExtensions_macos.h in Headers */ = {isa = PBXBuildFile; fileRef = 3726702521410BD800A8A2EB /* CommonExtensions_macos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3726702B21410C5700A8A2EB /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B2D20135B9A005152D3 /* Array.swift */; };
+		3726702C21410C5A00A8A2EB /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670D20150B46002F4072 /* AttributedString.swift */; };
+		3726702D21410C5D00A8A2EB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1D20135450005152D3 /* Date.swift */; };
+		3726702E21410C5F00A8A2EB /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B152013490E005152D3 /* I18n.swift */; };
+		3726702F21410C6200A8A2EB /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1B20134E03005152D3 /* Math.swift */; };
+		3726703021410C6500A8A2EB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1920134B94005152D3 /* String.swift */; };
 		377B7B1220134513005152D3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1120134513005152D3 /* UIColor.swift */; };
 		377B7B162013490E005152D3 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B152013490E005152D3 /* I18n.swift */; };
 		377B7B1820134985005152D3 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1720134985005152D3 /* UIButton.swift */; };
@@ -53,6 +60,9 @@
 		2CBA90476BF861EF79CBED5EDA1D30C9 /* Pods_CommonExtensions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonExtensions_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36660DB79878ADD2F128357582CF1273 /* CommonExtensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CommonExtensions-prefix.pch"; sourceTree = "<group>"; };
 		37053E3320C7CB9900C3141C /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		3726702321410BD800A8A2EB /* CommonExtensions_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonExtensions_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3726702521410BD800A8A2EB /* CommonExtensions_macos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonExtensions_macos.h; sourceTree = "<group>"; };
+		3726702621410BD800A8A2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377B7B1120134513005152D3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		377B7B152013490E005152D3 /* I18n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I18n.swift; sourceTree = "<group>"; };
 		377B7B1720134985005152D3 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -88,6 +98,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3726701F21410BD800A8A2EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		883E5112496C7F8EAB43BC8494FB1886 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,6 +140,15 @@
 				E5C1FE4139B710D1E42E97A86761936C /* README.md */,
 			);
 			name = Pod;
+			sourceTree = "<group>";
+		};
+		3726702421410BD800A8A2EB /* CommonExtensions-macos */ = {
+			isa = PBXGroup;
+			children = (
+				3726702521410BD800A8A2EB /* CommonExtensions_macos.h */,
+				3726702621410BD800A8A2EB /* Info.plist */,
+			);
+			path = "CommonExtensions-macos";
 			sourceTree = "<group>";
 		};
 		377B7B2B20135AB3005152D3 /* Foundation */ = {
@@ -194,6 +220,7 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				079B97F3946338555569B28CCFF5F579 /* Development Pods */,
+				3726702421410BD800A8A2EB /* CommonExtensions-macos */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				C6A0D7179530755CE37D19B8E046A371 /* Products */,
 				7A67CE7D3314BB937DD6F6FF56988835 /* Targets Support Files */,
@@ -244,6 +271,7 @@
 			children = (
 				D9336275B518D0EAD289434D7465DB2B /* CommonExtensions.framework */,
 				2CBA90476BF861EF79CBED5EDA1D30C9 /* Pods_CommonExtensions_Tests.framework */,
+				3726702321410BD800A8A2EB /* CommonExtensions_macos.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,6 +287,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3726702021410BD800A8A2EB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3726702721410BD800A8A2EB /* CommonExtensions_macos.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		646B260ABA764067119DE86D7D170A59 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +314,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3726702221410BD800A8A2EB /* CommonExtensions-macos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3726702A21410BD800A8A2EB /* Build configuration list for PBXNativeTarget "CommonExtensions-macos" */;
+			buildPhases = (
+				3726701E21410BD800A8A2EB /* Sources */,
+				3726701F21410BD800A8A2EB /* Frameworks */,
+				3726702021410BD800A8A2EB /* Headers */,
+				3726702121410BD800A8A2EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CommonExtensions-macos";
+			productName = "CommonExtensions-macos";
+			productReference = 3726702321410BD800A8A2EB /* CommonExtensions_macos.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		997C260FD09D7651E9DF081686203263 /* CommonExtensions */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21AD7600222EEF07340412CD57EC74F8 /* Build configuration list for PBXNativeTarget "CommonExtensions" */;
@@ -321,6 +375,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					3726702221410BD800A8A2EB = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Manual;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -335,12 +395,36 @@
 			projectRoot = "";
 			targets = (
 				997C260FD09D7651E9DF081686203263 /* CommonExtensions */,
+				3726702221410BD800A8A2EB /* CommonExtensions-macos */,
 				F15E0A2E1059354DCE83C9F189798147 /* Pods-CommonExtensions_Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		3726702121410BD800A8A2EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3726701E21410BD800A8A2EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3726703021410C6500A8A2EB /* String.swift in Sources */,
+				3726702C21410C5A00A8A2EB /* AttributedString.swift in Sources */,
+				3726702E21410C5F00A8A2EB /* I18n.swift in Sources */,
+				3726702D21410C5D00A8A2EB /* Date.swift in Sources */,
+				3726702B21410C5700A8A2EB /* Array.swift in Sources */,
+				3726702F21410C6200A8A2EB /* Math.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3C9303B1449C30759069710DB77EC94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +532,70 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
+		};
+		3726702821410BD800A8A2EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CommonExtensions-macos/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.CommonExtensions-macos";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3726702921410BD800A8A2EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "CommonExtensions-macos/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.CommonExtensions-macos";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		731DC216E1A58545B559F6E0A2418060 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -654,6 +802,15 @@
 			buildConfigurations = (
 				33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */,
 				731DC216E1A58545B559F6E0A2418060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3726702A21410BD800A8A2EB /* Build configuration list for PBXNativeTarget "CommonExtensions-macos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3726702821410BD800A8A2EB /* Debug */,
+				3726702921410BD800A8A2EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

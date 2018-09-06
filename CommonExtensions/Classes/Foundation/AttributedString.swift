@@ -7,6 +7,7 @@
 
 extension NSMutableAttributedString {
 
+    #if os(iOS)
     public func addBold(from location: Int = 0, length: Int? = nil, fontSize: CGFloat) {
         self.addAttribute(.font,
                           value: UIFont.boldSystemFont(ofSize: fontSize),
@@ -18,6 +19,7 @@ extension NSMutableAttributedString {
                           value: font,
                           range: NSRange(location: location, length: length ?? self.length))
     }
+    #endif
 
     public func setParagraph(spacing: CGFloat = 0,
                              lineSpacing: CGFloat = 0,
@@ -47,10 +49,12 @@ extension NSMutableAttributedString {
         self.setParagraph(lineHeightMultiple: lineHeight, alignment: alignment)
     }
 
+    #if os(iOS)
     public func setColor(_ color: UIColor, from location: Int = 0, length: Int? = nil) {
         self.addAttribute(.foregroundColor,
                           value: color,
                           range: NSRange(location: location, length: length ?? self.length))
     }
+    #endif
 
 }
