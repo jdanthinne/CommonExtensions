@@ -60,7 +60,7 @@
 		2CBA90476BF861EF79CBED5EDA1D30C9 /* Pods_CommonExtensions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonExtensions_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36660DB79878ADD2F128357582CF1273 /* CommonExtensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CommonExtensions-prefix.pch"; sourceTree = "<group>"; };
 		37053E3320C7CB9900C3141C /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		3726702321410BD800A8A2EB /* CommonExtensions_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonExtensions_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3726702321410BD800A8A2EB /* CommonExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3726702521410BD800A8A2EB /* CommonExtensions_macos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonExtensions_macos.h; sourceTree = "<group>"; };
 		3726702621410BD800A8A2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377B7B1120134513005152D3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 			children = (
 				D9336275B518D0EAD289434D7465DB2B /* CommonExtensions.framework */,
 				2CBA90476BF861EF79CBED5EDA1D30C9 /* Pods_CommonExtensions_Tests.framework */,
-				3726702321410BD800A8A2EB /* CommonExtensions_macos.framework */,
+				3726702321410BD800A8A2EB /* CommonExtensions.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 			);
 			name = "CommonExtensions-macos";
 			productName = "CommonExtensions-macos";
-			productReference = 3726702321410BD800A8A2EB /* CommonExtensions_macos.framework */;
+			productReference = 3726702321410BD800A8A2EB /* CommonExtensions.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		997C260FD09D7651E9DF081686203263 /* CommonExtensions */ = {
@@ -556,7 +556,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.CommonExtensions-macos";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = CommonExtensions;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -586,7 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.CommonExtensions-macos";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = CommonExtensions;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;

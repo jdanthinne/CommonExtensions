@@ -5,6 +5,8 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
+import Foundation
+
 extension MutableCollection {
 
     /// Shuffles the contents of this collection.
