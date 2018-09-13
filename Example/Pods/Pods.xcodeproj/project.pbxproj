@@ -10,7 +10,6 @@
 		0FBB6A3B5DEE16EC7CEA5EAAECFC9159 /* Pods-CommonExtensions_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09856656F4A3976D25A8EBBB34F0221B /* Pods-CommonExtensions_Tests-dummy.m */; };
 		37053E3420C7CB9A00C3141C /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37053E3320C7CB9900C3141C /* UIStackView.swift */; };
 		3726702721410BD800A8A2EB /* CommonExtensions_macos.h in Headers */ = {isa = PBXBuildFile; fileRef = 3726702521410BD800A8A2EB /* CommonExtensions_macos.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3726702B21410C5700A8A2EB /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B2D20135B9A005152D3 /* Array.swift */; };
 		3726702C21410C5A00A8A2EB /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670D20150B46002F4072 /* AttributedString.swift */; };
 		3726702D21410C5D00A8A2EB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B1D20135450005152D3 /* Date.swift */; };
 		3726702E21410C5F00A8A2EB /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B152013490E005152D3 /* I18n.swift */; };
@@ -27,7 +26,6 @@
 		377B7B26201355C8005152D3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B25201355C8005152D3 /* UIView.swift */; };
 		377B7B2820135686005152D3 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B2720135686005152D3 /* UITableView.swift */; };
 		377B7B2A2013569E005152D3 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B292013569E005152D3 /* UICollectionView.swift */; };
-		377B7B2E20135B9B005152D3 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B2D20135B9A005152D3 /* Array.swift */; };
 		378B670C20150B02002F4072 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670B20150B02002F4072 /* UIPageViewController.swift */; };
 		378B670E20150B46002F4072 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670D20150B46002F4072 /* AttributedString.swift */; };
 		3794E46A2068D72400F30C18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794E4682068D72400F30C18 /* Alerts.swift */; };
@@ -74,7 +72,6 @@
 		377B7B25201355C8005152D3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		377B7B2720135686005152D3 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		377B7B292013569E005152D3 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
-		377B7B2D20135B9A005152D3 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		378B670B20150B02002F4072 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		378B670D20150B46002F4072 /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 		3794E4682068D72400F30C18 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -154,7 +151,6 @@
 		377B7B2B20135AB3005152D3 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				377B7B2D20135B9A005152D3 /* Array.swift */,
 				378B670D20150B46002F4072 /* AttributedString.swift */,
 				377B7B1D20135450005152D3 /* Date.swift */,
 				377B7B152013490E005152D3 /* I18n.swift */,
@@ -424,7 +420,6 @@
 				3726702C21410C5A00A8A2EB /* AttributedString.swift in Sources */,
 				3726702E21410C5F00A8A2EB /* I18n.swift in Sources */,
 				3726702D21410C5D00A8A2EB /* Date.swift in Sources */,
-				3726702B21410C5700A8A2EB /* Array.swift in Sources */,
 				3726702F21410C6200A8A2EB /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,7 +449,6 @@
 				377B7B2A2013569E005152D3 /* UICollectionView.swift in Sources */,
 				377B7B242013558C005152D3 /* UIViewController.swift in Sources */,
 				377B7B222013555B005152D3 /* UIScreen.swift in Sources */,
-				377B7B2E20135B9B005152D3 /* Array.swift in Sources */,
 				377B7B162013490E005152D3 /* I18n.swift in Sources */,
 				377B7B1820134985005152D3 /* UIButton.swift in Sources */,
 				377B7B1C20134E03005152D3 /* Math.swift in Sources */,
