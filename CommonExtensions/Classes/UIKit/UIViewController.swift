@@ -40,9 +40,9 @@ extension UIApplication {
 extension UIViewController {
     
     public func add(_ child: UIViewController) {
-        addChildViewController(child)
+        addChild(child)
         view.addSubview(child.view)
-        child.didMove(toParentViewController: self)
+        child.didMove(toParent: self)
     }
     
     public func remove() {
@@ -50,21 +50,27 @@ extension UIViewController {
             return
         }
         
-        willMove(toParentViewController: nil)
-        removeFromParentViewController()
+        willMove(toParent: nil)
+        removeFromParent()
         view.removeFromSuperview()
     }
     
     public func handleKeyboardChanges() {
         if self is KeyboardChangesDelegate {
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: .UIKeyboardWillChangeFrame, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillChangeFrame(_:)),
+                                                   name: UIResponder.keyboardWillChangeFrameNotification,
+                                                   object: nil)
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillBeHidden(_:)),
+                                                   name: UIResponder.keyboardWillHideNotification,
+                                                   object: nil)
         }
     }
     
     @objc func keyboardWillChangeFrame(_ notification: Notification) {
         if let delegate = self as? KeyboardChangesDelegate, let userInfo = notification.userInfo {
-            if let keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+            if let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
                 if let scrollView = delegate.keyboardChangesScrollView {
                     var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenShown?.top ?? 0) + scrollView.contentInset.top,
                                               left: (delegate.keyboardChangesInsetsWhenShown?.left ?? 0),

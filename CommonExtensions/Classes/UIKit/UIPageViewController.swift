@@ -8,7 +8,7 @@
 extension UIPageViewController {
 
     public func setViewControllersSafely(_ viewControllers: [UIViewController]?,
-                                         direction: UIPageViewControllerNavigationDirection,
+                                         direction: UIPageViewController.NavigationDirection,
                                          animated: Bool,
                                          completion: ((Bool) -> Void)? = nil) {
         guard animated else {

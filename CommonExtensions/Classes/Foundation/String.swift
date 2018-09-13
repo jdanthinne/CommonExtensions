@@ -60,7 +60,7 @@ extension String {
                            withLineSpacing lineSpace: CGFloat = 0,
                            withParagraphSpacing paragraphSpacing: CGFloat = 0,
                            maxLines: Int = 0) -> CGRect {
-        var attributes: [NSAttributedStringKey: Any] = [.font: font]
+        var attributes: [NSAttributedString.Key: Any] = [.font: font]
 
         if lineSpace != 0 {
             let bodyParagraphStyle = NSMutableParagraphStyle()
