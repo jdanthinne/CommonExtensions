@@ -22,3 +22,22 @@ extension UICollectionView {
     }
 
 }
+
+extension UICollectionViewCell {
+    
+    public func enableSelfSizing() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        /* Code below is needed to make the self-sizing cell work
+         * when building for iOS 12 from Xcode 10.0.
+         * Source: https://stackoverflow.com/a/52389062/3675395
+         */
+        if #available(iOS 12.0, *) {
+            NSLayoutConstraint.activate([contentView.leftAnchor.constraint(equalTo: leftAnchor),
+                                         contentView.rightAnchor.constraint(equalTo: rightAnchor),
+                                         contentView.topAnchor.constraint(equalTo: topAnchor),
+                                         contentView.bottomAnchor.constraint(equalTo: bottomAnchor)])
+        }
+    }
+    
+}
