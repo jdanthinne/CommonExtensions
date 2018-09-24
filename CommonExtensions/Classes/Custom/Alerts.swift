@@ -14,6 +14,7 @@ public class Alerts {
                            message: String? = nil,
                            messageIsLocalized: Bool = false,
                            withMessageArgument messageArgument: String = "",
+                           attributedMessage: NSMutableAttributedString? = nil,
                            okButton: String = "OK",
                            style: UIAlertController.Style = .alert,
                            popoverSourceView: UIView? = nil,
@@ -26,6 +27,7 @@ public class Alerts {
                        message: message,
                        messageIsLocalized: messageIsLocalized,
                        withMessageArgument: messageArgument,
+                       attributedMessage: attributedMessage,
                        button: okButton,
                        preferredStyle: style,
                        popoverSourceView: popoverSourceView,
@@ -40,6 +42,7 @@ public class Alerts {
                                    message: String? = nil,
                                    messageIsLocalized: Bool = false,
                                    withMessageArgument messageArgument: String = "",
+                                   attributedMessage: NSMutableAttributedString? = nil,
                                    button: String,
                                    withButtonArgument buttonArgument: String = "",
                                    buttonIsDestructive: Bool = false,
@@ -59,6 +62,7 @@ public class Alerts {
                        message: message,
                        messageIsLocalized: messageIsLocalized,
                        withMessageArgument: messageArgument,
+                       attributedMessage: attributedMessage,
                        button: button,
                        withButtonArgument: buttonArgument,
                        buttonIsDestructive: buttonIsDestructive,
@@ -77,6 +81,7 @@ public class Alerts {
                                message: String? = nil,
                                messageIsLocalized: Bool = false,
                                withMessageArgument messageArgument: String = "",
+                               attributedMessage: NSMutableAttributedString? = nil,
                                button: String,
                                withButtonArgument buttonArgument: String = "",
                                buttonIsDestructive: Bool = false,
@@ -112,6 +117,10 @@ public class Alerts {
         let buttonTitle = buttonArgument != "" ? button.localizedWithArg(buttonArgument) : button.localized
         
         let alert = UIAlertController(title: finalTitle, message: finalMessage, preferredStyle: preferredStyle)
+        
+        if let attributedMessage = attributedMessage {
+            alert.setValue(attributedMessage.withDefaultFont(), forKey: "attributedMessage")
+        }
         
         if let sourceView = popoverSourceView {
             alert.popoverPresentationController?.sourceView = sourceView
@@ -153,6 +162,7 @@ public class Alerts {
     
     public class func promptAlert(title: String,
                                   message: String,
+                                  attributedMessage: NSMutableAttributedString? = nil,
                                   placeholder: String?,
                                   actionTitle: String = "Ok",
                                   validationRule: String.ValidationRule,
@@ -185,6 +195,10 @@ public class Alerts {
         var textFieldObserver: TextFieldObserver?
         
         let alert = UIAlertController(title: title.localized, message: message.localized, preferredStyle: .alert)
+        
+        if let attributedMessage = attributedMessage {
+            alert.setValue(attributedMessage.withDefaultFont(), forKey: "attributedMessage")
+        }
         
         let mainAction = UIAlertAction(title: actionTitle.localized, style: .default, handler: { _ in
             guard let title = alert.textFields?.first?.text else { return }
@@ -258,6 +272,21 @@ extension UIAlertController {
     
     public func present() {
         self.present(in: UIApplication.topViewController(), topViewHasBeenTried: true)
+    }
+    
+}
+
+extension NSMutableAttributedString {
+    
+    func withDefaultFont() -> NSMutableAttributedString {
+        let attributedMessage = NSMutableAttributedString(string: self.string, attributes: [.font: UIFont.preferredFont(forTextStyle: .footnote)])
+        
+        self.enumerateAttributes(in: NSRange(location: 0, length: self.length),
+                                 options: .longestEffectiveRangeNotRequired) { (attributes, range, stop) in
+                                    attributes.forEach { attributedMessage.addAttribute($0.key, value: $0.value, range: range) }
+        }
+        
+        return attributedMessage
     }
     
 }
