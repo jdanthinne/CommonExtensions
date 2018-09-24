@@ -119,8 +119,7 @@ public class Alerts {
         let alert = UIAlertController(title: finalTitle, message: finalMessage, preferredStyle: preferredStyle)
         
         if let attributedMessage = attributedMessage {
-            attributedMessage.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .caption1), range: NSRange(location: 0, length: attributedMessage.length))
-            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.setValue(attributedMessage.withDefaultFont(), forKey: "attributedMessage")
         }
         
         if let sourceView = popoverSourceView {
@@ -198,8 +197,7 @@ public class Alerts {
         let alert = UIAlertController(title: title.localized, message: message.localized, preferredStyle: .alert)
         
         if let attributedMessage = attributedMessage {
-            attributedMessage.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .caption1), range: NSRange(location: 0, length: attributedMessage.length))
-            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.setValue(attributedMessage.withDefaultFont(), forKey: "attributedMessage")
         }
         
         let mainAction = UIAlertAction(title: actionTitle.localized, style: .default, handler: { _ in
@@ -274,6 +272,21 @@ extension UIAlertController {
     
     public func present() {
         self.present(in: UIApplication.topViewController(), topViewHasBeenTried: true)
+    }
+    
+}
+
+extension NSMutableAttributedString {
+    
+    func withDefaultFont() -> NSMutableAttributedString {
+        let attributedMessage = NSMutableAttributedString(string: self.string, attributes: [.font: UIFont.preferredFont(forTextStyle: .caption1)])
+        
+        self.enumerateAttributes(in: NSRange(location: 0, length: self.length),
+                                 options: .longestEffectiveRangeNotRequired) { (attributes, range, stop) in
+                                    attributes.forEach { attributedMessage.addAttribute($0.key, value: $0.value, range: range) }
+        }
+        
+        return attributedMessage
     }
     
 }
