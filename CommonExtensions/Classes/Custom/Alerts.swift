@@ -119,6 +119,7 @@ public class Alerts {
         let alert = UIAlertController(title: finalTitle, message: finalMessage, preferredStyle: preferredStyle)
         
         if let attributedMessage = attributedMessage {
+            attributedMessage.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .caption1), range: NSRange(location: 0, length: attributedMessage.length))
             alert.setValue(attributedMessage, forKey: "attributedMessage")
         }
         
@@ -197,6 +198,7 @@ public class Alerts {
         let alert = UIAlertController(title: title.localized, message: message.localized, preferredStyle: .alert)
         
         if let attributedMessage = attributedMessage {
+            attributedMessage.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .caption1), range: NSRange(location: 0, length: attributedMessage.length))
             alert.setValue(attributedMessage, forKey: "attributedMessage")
         }
         
