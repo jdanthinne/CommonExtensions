@@ -81,8 +81,10 @@ extension String {
     
     public func stripTags() -> String {
         return self
+            .replacingOccurrences(of: "<br\\s*/?>|</p>|</ul>|</li>", with: "\n", options: .regularExpression)
             .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
             .replacingOccurrences(of: "&nbsp;", with: "")
+            .replacingOccurrences(of: "&amp;", with: "&")
             .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
