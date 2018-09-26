@@ -24,10 +24,10 @@ extension URL {
                 return argumentParts.count == 2 ? argumentParts : nil
             })
             if let subjectString = queryArguments.first(where: { $0[0] == "subject" })?.last {
-                subject = String(subjectString)
+                subject = String(subjectString).removingPercentEncoding
             }
             if let bodyString = queryArguments.first(where: { $0[0] == "body" })?.last {
-                body = String(bodyString)
+                body = String(bodyString).removingPercentEncoding
             }
         }
         
