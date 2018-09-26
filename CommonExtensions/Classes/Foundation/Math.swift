@@ -17,3 +17,11 @@ extension FloatingPoint {
     public var radiansToDegrees: Self { return self * 180 / .pi }
 
 }
+
+extension Bool {
+    
+    public var intValue: Int {
+        return NSNumber(value: self).intValue
+    }
+    
+}
