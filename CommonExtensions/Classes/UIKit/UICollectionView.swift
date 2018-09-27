@@ -41,3 +41,35 @@ extension UICollectionViewCell {
     }
     
 }
+
+// Source: https://stackoverflow.com/a/51389412/3675395
+public class TopAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+    
+    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        let attributes = super.layoutAttributesForElements(in: rect)?
+            .map { $0.copy() } as? [UICollectionViewLayoutAttributes]
+        
+        attributes?
+            .filter { $0.representedElementCategory == .cell }
+            .reduce([:]) {
+                $0.merging([ceil($1.center.y): [$1]]) {
+                    $0 + $1
+                }
+            }
+            .values.forEach { line in
+                let maxHeightY = line.max {
+                    $0.frame.size.height < $1.frame.size.height
+                    }?.frame.origin.y
+                
+                line.forEach {
+                    $0.frame = $0.frame.offsetBy(
+                        dx: 0,
+                        dy: (maxHeightY ?? $0.frame.origin.y) - $0.frame.origin.y
+                    )
+                }
+        }
+        
+        return attributes
+    }
+    
+}
