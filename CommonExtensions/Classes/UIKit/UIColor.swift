@@ -51,7 +51,7 @@ extension UIColor {
         return UIColor(red: r, green: g, blue: b, alpha: 1.0)
     }
     
-    public func modified(withAdditionalHue hue: CGFloat, additionalSaturation: CGFloat, additionalBrightness: CGFloat) -> UIColor {
+    public func modified(additionalHue hue: CGFloat = 0, additionalSaturation: CGFloat = 0, additionalBrightness: CGFloat = 0) -> UIColor {
         
         var currentHue: CGFloat = 0.0
         var currentSaturation: CGFloat = 0.0
