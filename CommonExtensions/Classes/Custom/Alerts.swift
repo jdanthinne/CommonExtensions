@@ -235,9 +235,14 @@ public class Alerts {
         return alert
     }
     
-    public class func customView(_ view: UIView, title: String, titleIsLocalized: Bool = false,
-                          preferredContentSize: CGSize, defaultActionTitle: String,
-                          confirm: @escaping (_ action: UIAlertAction) -> Void) -> UIAlertController {
+    public class func customView(_ view: UIView,
+                                 title: String,
+                                 titleIsLocalized: Bool = false,
+                                 preferredContentSize: CGSize,
+                                 defaultActionTitle: String,
+                                 confirm: @escaping (_ action: UIAlertAction) -> Void,
+                                 cancel: ((_ action: UIAlertAction) -> Void)? = nil) -> UIAlertController {
+        
         let pickerVC = UIViewController()
         pickerVC.preferredContentSize = preferredContentSize
         pickerVC.view.addSubview(view)
@@ -247,7 +252,7 @@ public class Alerts {
         let actionSheet = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         actionSheet.setValue(pickerVC, forKey: "contentViewController")
         actionSheet.addAction(UIAlertAction(title: defaultActionTitle.localized, style: .default, handler: confirm))
-        actionSheet.addAction(UIAlertAction(title: "ACTION_CANCEL".localized, style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "ACTION_CANCEL".localized, style: .cancel, handler: cancel))
         
         return actionSheet
     }
