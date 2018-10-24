@@ -58,16 +58,16 @@ extension String {
     public func sizeNeeded(inAvailableWidth width: CGFloat,
                            withFont font: UIFont,
                            withLineSpacing lineSpace: CGFloat = 0,
+                           withLineHeightMultiple lineHeightMultiple: CGFloat = 0,
                            withParagraphSpacing paragraphSpacing: CGFloat = 0,
                            maxLines: Int = 0) -> CGRect {
         var attributes: [NSAttributedString.Key: Any] = [.font: font]
 
-        if lineSpace != 0 {
-            let bodyParagraphStyle = NSMutableParagraphStyle()
-            bodyParagraphStyle.lineSpacing = lineSpace
-            bodyParagraphStyle.paragraphSpacing = paragraphSpacing
-            attributes[.paragraphStyle] = bodyParagraphStyle
-        }
+        let bodyParagraphStyle = NSMutableParagraphStyle()
+        bodyParagraphStyle.lineSpacing = lineSpace
+        bodyParagraphStyle.lineHeightMultiple = lineHeightMultiple
+        bodyParagraphStyle.paragraphSpacing = paragraphSpacing
+        attributes[.paragraphStyle] = bodyParagraphStyle
 
         let height: CGFloat = maxLines != 0 ? CGFloat(maxLines) * font.lineHeight : 0
 
