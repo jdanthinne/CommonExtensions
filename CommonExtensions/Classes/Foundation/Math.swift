@@ -5,6 +5,8 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
+import Foundation
+
 extension Int {
 
     public var degreesToRadians: Double { return Double(self) * .pi / 180 }
