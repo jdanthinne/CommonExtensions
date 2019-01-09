@@ -5,10 +5,10 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
-extension String {
-
-    public var toRGB: UIColor {
-        let hex = trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+extension UIColor {
+    
+    public convenience init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
         Scanner(string: hex).scanHexInt32(&int)
         let a, r, g, b: UInt32
@@ -20,9 +20,10 @@ extension String {
         case 8: // ARGB (32-bit)
             (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
         default:
-            return .clear
+            (a, r, g, b) = (0, 0, 0, 0)
         }
-        return UIColor(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+        
+        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 
 }
