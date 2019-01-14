@@ -15,13 +15,13 @@ extension NSMutableAttributedString {
     public func addBold(from location: Int = 0, length: Int? = nil, fontSize: CGFloat) {
         self.addAttribute(.font,
                           value: UIFont.boldSystemFont(ofSize: fontSize),
-                          range: NSRange(location: location, length: length ?? self.length))
+                          range: NSRange(location: location, length: length ?? self.length - location))
     }
 
     public func setFont(_ font: UIFont, from location: Int = 0, length: Int? = nil) {
         self.addAttribute(.font,
                           value: font,
-                          range: NSRange(location: location, length: length ?? self.length))
+                          range: NSRange(location: location, length: length ?? self.length - location))
     }
     #endif
 
@@ -57,7 +57,7 @@ extension NSMutableAttributedString {
     public func setColor(_ color: UIColor, from location: Int = 0, length: Int? = nil) {
         self.addAttribute(.foregroundColor,
                           value: color,
-                          range: NSRange(location: location, length: length ?? self.length))
+                          range: NSRange(location: location, length: length ?? self.length - location))
     }
     #endif
 
