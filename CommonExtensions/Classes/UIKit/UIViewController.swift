@@ -39,9 +39,18 @@ extension UIApplication {
 
 extension UIViewController {
     
-    public func add(_ child: UIViewController) {
+    public func add(_ child: UIViewController, to view: UIView? = nil, stackViewPosition: Int? = nil) {
         addChild(child)
-        view.addSubview(child.view)
+        let containerView: UIView = view ?? self.view
+        if let stackView = view as? UIStackView {
+            if let position = stackViewPosition {
+                stackView.insertArrangedSubview(child.view, at: position)
+            } else {
+                stackView.addArrangedSubview(child.view)
+            }
+        } else {
+            containerView.addSubview(child.view)
+        }
         child.didMove(toParent: self)
     }
     
