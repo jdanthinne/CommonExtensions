@@ -5,6 +5,8 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
+import UIKit
+
 extension UIView {
 
     public func setBorder(color: UIColor, width: CGFloat = UIScreen.oneDevicePixel, radius: CGFloat? = nil) {

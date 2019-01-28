@@ -5,6 +5,8 @@
 //  Created by Jérôme Danthinne on 17/12/2018.
 //
 
+import UIKit
+
 extension UIRefreshControl {
     
     public func beginRefreshingProgrammaticaly() {

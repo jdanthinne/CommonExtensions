@@ -5,6 +5,8 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
+import UIKit
+
 extension UIApplication {
 
     public class func topViewController(controller: UIViewController? = nil) -> UIViewController? {

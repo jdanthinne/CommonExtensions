@@ -5,6 +5,8 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
+import UIKit
+
 extension UIColor {
     
     public convenience init(hex: String) {

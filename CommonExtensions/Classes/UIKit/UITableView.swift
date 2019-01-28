@@ -5,6 +5,8 @@
 //  Created by Jérôme Danthinne on 20/01/18.
 //
 
+import UIKit
+
 extension UITableView {
 
     public func register(cellsWithReuseIdentifiers names: [String]) {
