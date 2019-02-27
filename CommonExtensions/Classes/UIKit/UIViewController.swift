@@ -83,10 +83,12 @@ extension UIViewController {
         if let delegate = self as? KeyboardChangesDelegate, let userInfo = notification.userInfo {
             if let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
                 if let scrollView = delegate.keyboardChangesScrollView {
-                    var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenShown?.top ?? 0) + scrollView.contentInset.top,
-                                              left: (delegate.keyboardChangesInsetsWhenShown?.left ?? 0),
-                                              bottom: (delegate.keyboardChangesInsetsWhenShown?.bottom ?? 0) + keyboardHeight - (tabBarController?.tabBar.frame.size.height ?? 0),
-                                              right: (delegate.keyboardChangesInsetsWhenShown?.right ?? 0))
+                    let topInset: CGFloat = (delegate.keyboardChangesInsetsWhenShown?.top ?? 0) + scrollView.contentInset.top
+                    let bottomInset: CGFloat = (delegate.keyboardChangesInsetsWhenShown?.bottom ?? 0) + keyboardHeight - (tabBarController?.tabBar.frame.size.height ?? 0)
+                    let leftInset: CGFloat = delegate.keyboardChangesInsetsWhenShown?.left ?? 0
+                    let rightInset: CGFloat = delegate.keyboardChangesInsetsWhenShown?.right ?? 0
+                    
+                    var insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
                     
                     insets.add(delegate.keyboardChangesAdditionnalInsetsWhenShown?())
                     
@@ -102,10 +104,12 @@ extension UIViewController {
     @objc func keyboardWillBeHidden(_ notification: Notification) {
         if let delegate = self as? KeyboardChangesDelegate {
             if let scrollView = delegate.keyboardChangesScrollView {
-                var insets = UIEdgeInsets(top: (delegate.keyboardChangesInsetsWhenHidden?.top ?? 0) + scrollView.contentInset.top,
-                                          left: (delegate.keyboardChangesInsetsWhenHidden?.left ?? 0),
-                                          bottom: (delegate.keyboardChangesInsetsWhenHidden?.bottom ?? 0),
-                                          right: (delegate.keyboardChangesInsetsWhenHidden?.right ?? 0))
+                let topInset: CGFloat = (delegate.keyboardChangesInsetsWhenHidden?.top ?? 0) + scrollView.contentInset.top
+                let bottomInset: CGFloat = delegate.keyboardChangesInsetsWhenHidden?.bottom ?? 0
+                let leftInset: CGFloat = delegate.keyboardChangesInsetsWhenHidden?.left ?? 0
+                let rightInset: CGFloat = delegate.keyboardChangesInsetsWhenHidden?.right ?? 0
+                
+                var insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
                 
                 insets.add(delegate.keyboardChangesAdditionnalInsetsWhenHidden?())
                 
