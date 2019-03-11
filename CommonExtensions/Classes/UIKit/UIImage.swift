@@ -26,7 +26,6 @@ extension UIImage {
         context.addPath(UIBezierPath(roundedRect: rect, cornerRadius: radius).cgPath)
         context.clip()
         context.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: height), options: [])
-        context.closePath()
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
