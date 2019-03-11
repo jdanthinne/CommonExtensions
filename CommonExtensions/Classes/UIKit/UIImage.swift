@@ -35,7 +35,7 @@ extension UIImage {
             return nil
         }
         
-        self.init(cgImage: cgImage)
+        self.init(cgImage: cgImage, scale: UIScreen.main.scale, orientation: .up)
     }
     
 }

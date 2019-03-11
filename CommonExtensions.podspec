@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CommonExtensions'
-  s.version          = '1.1.28'
+  s.version          = '1.1.29'
   s.summary          = 'Useful Swift UIKit extensions.'
 
 # This description is used to generate tags and improve search results.
