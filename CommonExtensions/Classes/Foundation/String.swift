@@ -14,7 +14,11 @@ extension String {
             .lowercased(with: Locale.current)
             .folding(options: .diacriticInsensitive, locale: .current)
     }
-    
+
+    public func isSameCaseAndDiacriticsInsensitive(as other: String) -> Bool {
+        return self.trimmedLowercasedDiacriticsInsensitive == other.trimmedLowercasedDiacriticsInsensitive
+    }
+
     public enum ValidationRule {
         /// Any input is valid, including an empty string.
         case noRestriction
