@@ -9,6 +9,12 @@ import Foundation
 
 extension String {
     
+    public var trimmedLowercasedDiacriticsInsensitive: String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased(with: Locale.current)
+            .folding(options: .diacriticInsensitive, locale: .current)
+    }
+    
     public enum ValidationRule {
         /// Any input is valid, including an empty string.
         case noRestriction
