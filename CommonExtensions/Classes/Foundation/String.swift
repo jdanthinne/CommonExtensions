@@ -24,9 +24,11 @@ extension String {
         case noRestriction
         /// The input must not be empty.
         case nonEmpty
+        /// The input must match a given string.
+        case equals(String, trimmed: Bool, lowercased: Bool, diacriticInsensitive: Bool)
         /// The input must be a valid email address.
         case email
-        /// The enitre input must match a regular expression. A matching substring is not enough.
+        /// The entire input must match a regular expression. A matching substring is not enough.
         case regularExpression(NSRegularExpression)
         /// The input is valid if the predicate function returns `true`.
         case predicate((String) -> Bool)
@@ -38,6 +40,22 @@ extension String {
             return true
         case .nonEmpty:
             return !self.isEmpty
+        case let .equals(match, trimmed, lowercased, diacriticInsensitive):
+            var match = match
+            var original = self
+            if trimmed {
+                match = match.trimmingCharacters(in: .whitespacesAndNewlines)
+                original = original.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            if lowercased {
+                match = match.lowercased(with: .current)
+                original = original.lowercased(with: .current)
+            }
+            if diacriticInsensitive {
+                match = match.folding(options: .diacriticInsensitive, locale: .current)
+                original = original.folding(options: .diacriticInsensitive, locale: .current)
+            }
+            return match == original
         case .email:
             let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
             let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
