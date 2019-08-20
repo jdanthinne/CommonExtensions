@@ -754,6 +754,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 65DE7D60F785629B52001C1DFC94305A /* CommonExtensions.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -785,6 +786,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 65DE7D60F785629B52001C1DFC94305A /* CommonExtensions.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
