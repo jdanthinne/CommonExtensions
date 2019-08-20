@@ -8,10 +8,6 @@
 import UIKit
 
 extension UIApplication {
-    static public var globalTintColor: UIColor? {
-        return topViewController()?.view.window?.tintColor
-    }
-    
     public class func topViewController(controller: UIViewController? = nil) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)
