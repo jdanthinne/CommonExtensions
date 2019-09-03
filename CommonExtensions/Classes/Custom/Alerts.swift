@@ -261,22 +261,13 @@ public class Alerts {
 
 extension UIAlertController {
     
-    public func present(in viewController: UIViewController?, animated: Bool = true, tintColor: UIColor? = nil, topViewHasBeenTried: Bool = false, completion: (() -> Void)? = nil) {
+    public func present(in viewController: UIViewController?, animated: Bool = true, tintColor: UIColor? = nil, completion: (() -> Void)? = nil) {
+        guard let viewController = viewController else { return }
+        
         DispatchQueue.main.async {
-            var vc = viewController
-            if vc == nil, !topViewHasBeenTried {
-                vc = UIApplication.topViewController()
-            }
-            
-            if let presentingVC = vc {
-                presentingVC.present(self, animated: animated, completion: completion)
-                self.view.tintColor = tintColor ?? presentingVC.view.tintColor
-            }
+            viewController.present(self, animated: animated, completion: completion)
+            self.view.tintColor = tintColor ?? viewController.view.tintColor
         }
-    }
-    
-    public func present() {
-        self.present(in: UIApplication.topViewController(), topViewHasBeenTried: true)
     }
     
 }
