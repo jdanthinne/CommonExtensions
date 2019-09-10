@@ -18,7 +18,6 @@ import UIKit
 }
 
 extension UIViewController {
-    
     public func add(_ child: UIViewController, to view: UIView? = nil, stackViewPosition: Int? = nil) {
         addChild(child)
         let containerView: UIView = view ?? self.view
@@ -33,17 +32,17 @@ extension UIViewController {
         }
         child.didMove(toParent: self)
     }
-    
+
     public func remove() {
         guard parent != nil else {
             return
         }
-        
+
         willMove(toParent: nil)
         removeFromParent()
         view.removeFromSuperview()
     }
-    
+
     public func handleKeyboardChanges() {
         if self is KeyboardChangesDelegate {
             NotificationCenter.default.addObserver(self,
@@ -56,7 +55,7 @@ extension UIViewController {
                                                    object: nil)
         }
     }
-    
+
     @objc func keyboardWillChangeFrame(_ notification: Notification) {
         if let delegate = self as? KeyboardChangesDelegate, let userInfo = notification.userInfo {
             if let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
@@ -65,20 +64,20 @@ extension UIViewController {
                     let bottomInset: CGFloat = (delegate.keyboardChangesInsetsWhenShown?.bottom ?? 0) + keyboardHeight - (tabBarController?.tabBar.frame.size.height ?? 0)
                     let leftInset: CGFloat = delegate.keyboardChangesInsetsWhenShown?.left ?? 0
                     let rightInset: CGFloat = delegate.keyboardChangesInsetsWhenShown?.right ?? 0
-                    
+
                     var insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-                    
+
                     insets.add(delegate.keyboardChangesAdditionnalInsetsWhenShown?())
-                    
+
                     scrollView.contentInset = insets
                     scrollView.scrollIndicatorInsets = insets
                 }
-                
+
                 delegate.keyboardChangesDidChangeFrame?(keyboardHeight: keyboardHeight)
             }
         }
     }
-    
+
     @objc func keyboardWillBeHidden(_ notification: Notification) {
         if let delegate = self as? KeyboardChangesDelegate {
             if let scrollView = delegate.keyboardChangesScrollView {
@@ -86,17 +85,16 @@ extension UIViewController {
                 let bottomInset: CGFloat = delegate.keyboardChangesInsetsWhenHidden?.bottom ?? 0
                 let leftInset: CGFloat = delegate.keyboardChangesInsetsWhenHidden?.left ?? 0
                 let rightInset: CGFloat = delegate.keyboardChangesInsetsWhenHidden?.right ?? 0
-                
+
                 var insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-                
+
                 insets.add(delegate.keyboardChangesAdditionnalInsetsWhenHidden?())
-                
+
                 scrollView.contentInset = insets
                 scrollView.scrollIndicatorInsets = insets
             }
-            
+
             delegate.keyboardChangesDidHide?()
         }
     }
-    
 }

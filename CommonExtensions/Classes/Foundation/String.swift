@@ -8,7 +8,6 @@
 import Foundation
 
 extension String {
-    
     public var trimmedLowercasedDiacriticsInsensitive: String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
             .lowercased(with: Locale.current)
@@ -16,7 +15,7 @@ extension String {
     }
 
     public func isSameCaseAndDiacriticsInsensitive(as other: String) -> Bool {
-        return self.trimmedLowercasedDiacriticsInsensitive == other.trimmedLowercasedDiacriticsInsensitive
+        return trimmedLowercasedDiacriticsInsensitive == other.trimmedLowercasedDiacriticsInsensitive
     }
 
     public enum ValidationRule {
@@ -33,13 +32,13 @@ extension String {
         /// The input is valid if the predicate function returns `true`.
         case predicate((String) -> Bool)
     }
-    
+
     public func isValid(rule: String.ValidationRule) -> Bool {
         switch rule {
         case .noRestriction:
             return true
         case .nonEmpty:
-            return !self.isEmpty
+            return !isEmpty
         case let .equals(match, trimmed, lowercased, diacriticInsensitive):
             var match = match
             var original = self
@@ -58,12 +57,12 @@ extension String {
             return match == original
         case .email:
             let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
             return emailTest.evaluate(with: self)
-        case .regularExpression(let regex):
-            let fullNSRange = NSRange(self.startIndex..., in: self)
+        case let .regularExpression(regex):
+            let fullNSRange = NSRange(startIndex..., in: self)
             return regex.rangeOfFirstMatch(in: self, options: .anchored, range: fullNSRange) == fullNSRange
-        case .predicate(let p):
+        case let .predicate(p):
             return p(self)
         }
     }
@@ -79,49 +78,45 @@ extension String {
     }
 
     public mutating func capitalizeFirstLetter(lowercasingRemainingLetters: Bool = false) {
-        self = self.capitalizingFirstLetter(lowercasingRemainingLetters: lowercasingRemainingLetters)
+        self = capitalizingFirstLetter(lowercasingRemainingLetters: lowercasingRemainingLetters)
     }
 
     #if os(iOS)
-    public func sizeNeeded(inAvailableWidth width: CGFloat,
-                           withFont font: UIFont,
-                           withLineSpacing lineSpace: CGFloat = 0,
-                           withLineHeightMultiple lineHeightMultiple: CGFloat = 0,
-                           withParagraphSpacing paragraphSpacing: CGFloat = 0,
-                           maxLines: Int = 0) -> CGRect {
-        var attributes: [NSAttributedString.Key: Any] = [.font: font]
+        public func sizeNeeded(inAvailableWidth width: CGFloat,
+                               withFont font: UIFont,
+                               withLineSpacing lineSpace: CGFloat = 0,
+                               withLineHeightMultiple lineHeightMultiple: CGFloat = 0,
+                               withParagraphSpacing paragraphSpacing: CGFloat = 0,
+                               maxLines: Int = 0) -> CGRect {
+            var attributes: [NSAttributedString.Key: Any] = [.font: font]
 
-        let bodyParagraphStyle = NSMutableParagraphStyle()
-        bodyParagraphStyle.lineSpacing = lineSpace
-        bodyParagraphStyle.lineHeightMultiple = lineHeightMultiple
-        bodyParagraphStyle.paragraphSpacing = paragraphSpacing
-        attributes[.paragraphStyle] = bodyParagraphStyle
+            let bodyParagraphStyle = NSMutableParagraphStyle()
+            bodyParagraphStyle.lineSpacing = lineSpace
+            bodyParagraphStyle.lineHeightMultiple = lineHeightMultiple
+            bodyParagraphStyle.paragraphSpacing = paragraphSpacing
+            attributes[.paragraphStyle] = bodyParagraphStyle
 
-        let height: CGFloat = maxLines != 0 ? CGFloat(maxLines) * font.lineHeight : 0
+            let height: CGFloat = maxLines != 0 ? CGFloat(maxLines) * font.lineHeight : 0
 
-        let spaceNeeded = NSString(string: self).boundingRect(with: CGSize(width: width, height: height),
-                                                              options: [.usesLineFragmentOrigin, .usesFontLeading],
-                                                              attributes: attributes, context: nil)
+            let spaceNeeded = NSString(string: self).boundingRect(with: CGSize(width: width, height: height),
+                                                                  options: [.usesLineFragmentOrigin, .usesFontLeading],
+                                                                  attributes: attributes, context: nil)
 
-        return spaceNeeded
-    }
+            return spaceNeeded
+        }
     #endif
-    
+
     public func stripTags() -> String {
-        return self
-            .replacingOccurrences(of: "<br\\s*/?>|</p>|</ul>|</li>", with: "\n", options: .regularExpression)
+        return replacingOccurrences(of: "<br\\s*/?>|</p>|</ul>|</li>", with: "\n", options: .regularExpression)
             .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
             .replacingOccurrences(of: "&nbsp;", with: "")
             .replacingOccurrences(of: "&amp;", with: "&")
             .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
-
 }
 
 extension String.Index {
-
     public func advance(by offset: Int, for string: String) -> String.Index {
         return string.index(self, offsetBy: offset)
     }
-
 }

@@ -8,14 +8,12 @@
 import UIKit
 
 extension UIEdgeInsets {
-    
     mutating func add(_ insets: UIEdgeInsets?) {
         guard let insets = insets else { return }
-        
-        self.top += insets.top
-        self.left += insets.left
-        self.bottom += insets.bottom
-        self.right += insets.right
+
+        top += insets.top
+        left += insets.left
+        bottom += insets.bottom
+        right += insets.right
     }
-    
 }

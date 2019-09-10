@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIPageViewController {
-
     public func setViewControllersSafely(_ viewControllers: [UIViewController]?,
                                          direction: UIPageViewController.NavigationDirection,
                                          animated: Bool,
@@ -35,5 +34,4 @@ extension UIPageViewController {
             }
         }
     }
-
 }
