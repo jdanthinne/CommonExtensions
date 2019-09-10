@@ -8,11 +8,10 @@
 import UIKit
 
 extension UIColor {
-    
     public convenience init(red: Int, green: Int, blue: Int, alpha: CGFloat = 1) {
         self.init(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: alpha)
     }
-    
+
     public convenience init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
@@ -28,16 +27,11 @@ extension UIColor {
         default:
             (a, r, g, b) = (0, 0, 0, 0)
         }
-        
+
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 
-}
-
-extension UIColor {
-
     public func add(_ overlay: UIColor) -> UIColor {
-        
         var bgR: CGFloat = 0
         var bgG: CGFloat = 0
         var bgB: CGFloat = 0
@@ -57,15 +51,14 @@ extension UIColor {
 
         return UIColor(red: r, green: g, blue: b, alpha: 1.0)
     }
-    
+
     public func modified(additionalHue hue: CGFloat = 0, additionalSaturation: CGFloat = 0, additionalBrightness: CGFloat = 0) -> UIColor {
-        
         var currentHue: CGFloat = 0.0
         var currentSaturation: CGFloat = 0.0
         var currentBrigthness: CGFloat = 0.0
         var currentAlpha: CGFloat = 0.0
-        
-        if self.getHue(&currentHue, saturation: &currentSaturation, brightness: &currentBrigthness, alpha: &currentAlpha) {
+
+        if getHue(&currentHue, saturation: &currentSaturation, brightness: &currentBrigthness, alpha: &currentAlpha) {
             return UIColor(hue: currentHue + hue,
                            saturation: currentSaturation + additionalSaturation,
                            brightness: currentBrigthness + additionalBrightness,
@@ -75,4 +68,32 @@ extension UIColor {
         }
     }
 
+    public func darkModeFriendly(force: Bool = false) -> UIColor {
+        let needsDarkMode: Bool
+        if #available(iOS 13.0, *) {
+            needsDarkMode = UITraitCollection.current.userInterfaceStyle == .dark || force
+        } else {
+            needsDarkMode = force
+        }
+
+        guard needsDarkMode else {
+            return self
+        }
+
+        let components = cgColor.components
+        let firstComponent = ((components?[0])! * 299)
+        let secondComponent = ((components?[1])! * 587)
+        let thirdComponent = ((components?[2])! * 114)
+        let brightness = (firstComponent + secondComponent + thirdComponent) / 1000
+
+        let neededDarkness = brightness - 0.5
+        let color: UIColor
+        if neededDarkness < 0 {
+            color = modified(additionalBrightness: -neededDarkness)
+        } else {
+            color = self
+        }
+
+        return color
+    }
 }
