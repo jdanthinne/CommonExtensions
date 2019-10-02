@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CommonExtensions'
-  s.version          = '1.7.1'
-  s.summary          = 'Useful Swift UIKit extensions.'
+  s.version          = '1.7.2'
+  s.summary          = 'Useful Swift extensions.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -22,11 +22,9 @@ Extends UIKit classes like UIColor, UITableView, UICollectionView…
                        DESC
 
   s.homepage         = 'https://github.com/jdanthinne/CommonExtensions'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jdanthinne' => 'jerome@grincheux.be' }
   s.source           = { :git => 'https://github.com/jdanthinne/CommonExtensions.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target  = '10.13'
@@ -36,12 +34,6 @@ Extends UIKit classes like UIColor, UITableView, UICollectionView…
     'CommonExtensions/Classes/UIKit/*',
     'CommonExtensions/Classes/Custom/*'
   ]
-  
-  # s.resource_bundles = {
-  #   'CommonExtensions' => ['CommonExtensions/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.ios.frameworks = 'UIKit'
 end
