@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CommonExtensions'
-  s.version          = '1.6.0'
+  s.version          = '1.7.0'
   s.summary          = 'Useful Swift UIKit extensions.'
 
 # This description is used to generate tags and improve search results.
@@ -29,6 +29,7 @@ Extends UIKit classes like UIColor, UITableView, UICollectionView…
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.osx.deployment_target  = '10.13'
 
   s.source_files = 'CommonExtensions/Classes/**/*'
   
