@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CommonExtensions'
-  s.version          = '1.7.0'
+  s.version          = '1.7.1'
   s.summary          = 'Useful Swift UIKit extensions.'
 
 # This description is used to generate tags and improve search results.
@@ -32,6 +32,10 @@ Extends UIKit classes like UIColor, UITableView, UICollectionView…
   s.osx.deployment_target  = '10.13'
 
   s.source_files = 'CommonExtensions/Classes/**/*'
+  s.osx.exclude_files = [
+    'CommonExtensions/Classes/UIKit/*',
+    'CommonExtensions/Classes/Custom/*'
+  ]
   
   # s.resource_bundles = {
   #   'CommonExtensions' => ['CommonExtensions/Assets/*.png']
