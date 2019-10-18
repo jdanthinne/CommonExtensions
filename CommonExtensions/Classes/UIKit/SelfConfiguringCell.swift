@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SelfConfiguringCell {
+public protocol SelfConfiguringCell {
     associatedtype CellModel
 
     static var reuseIdentifier: String { get }
