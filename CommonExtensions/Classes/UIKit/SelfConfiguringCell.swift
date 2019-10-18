@@ -15,7 +15,7 @@ public protocol SelfConfiguringCell {
 }
 
 extension SelfConfiguringCell {
-    func configure(with model: CellModel) {
+    public func configure(with model: CellModel) {
         // No config needed by default
     }
 }
