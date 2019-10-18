@@ -5,7 +5,10 @@
 //  Created by Jérôme Danthinne on 21/01/18.
 //
 
-#if os(macOS)
+import Foundation
+#if os(iOS)
+    import UIKit
+#elseif os(macOS)
     import AppKit
 #endif
 
