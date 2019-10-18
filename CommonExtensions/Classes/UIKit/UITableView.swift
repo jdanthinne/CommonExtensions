@@ -16,6 +16,15 @@ extension UITableView {
         names.forEach { self.register(UINib(nibName: $0, bundle: nil), forHeaderFooterViewReuseIdentifier: $0) }
     }
 
+    func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with model: T.CellModel, for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Unable to dequeue \(cellType)")
+        }
+
+        cell.configure(with: model)
+        return cell
+    }
+
     public func deselectSelectedRows() {
         indexPathsForSelectedRows?.forEach { self.deselectRow(at: $0, animated: true) }
     }
