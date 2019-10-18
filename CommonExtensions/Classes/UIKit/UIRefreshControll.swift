@@ -5,13 +5,15 @@
 //  Created by Jérôme Danthinne on 17/12/2018.
 //
 
-import UIKit
+#if os(iOS)
+    import UIKit
 
-extension UIRefreshControl {
-    public func beginRefreshingProgrammaticaly() {
-        if let scrollView = superview as? UIScrollView {
-            scrollView.setContentOffset(CGPoint(x: 0, y: scrollView.contentOffset.y - frame.height), animated: true)
+    extension UIRefreshControl {
+        public func beginRefreshingProgrammaticaly() {
+            if let scrollView = superview as? UIScrollView {
+                scrollView.setContentOffset(CGPoint(x: 0, y: scrollView.contentOffset.y - frame.height), animated: true)
+            }
+            beginRefreshing()
         }
-        beginRefreshing()
     }
-}
+#endif

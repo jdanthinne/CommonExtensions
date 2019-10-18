@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
 
 extension String {
     public var trimmedLowercasedDiacriticsInsensitive: String {
