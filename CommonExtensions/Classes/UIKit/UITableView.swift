@@ -58,7 +58,7 @@
         }
 
         public func isLastRowOfTableView(_ tableView: UITableView) -> Bool {
-            return section == tableView.numberOfSections - 1 && isLastRowOfSection(in: tableView)
+            section == tableView.numberOfSections - 1 && isLastRowOfSection(in: tableView)
         }
     }
 #endif

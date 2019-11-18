@@ -21,18 +21,18 @@
                                       popoverBarButtonItem: UIBarButtonItem? = nil,
                                       popoverArrowDirections: UIPopoverArrowDirection = [.up],
                                       confirm: (() -> Void)? = nil) -> UIAlertController {
-            return builder(title: alertTitle,
-                           titleIsLocalized: titleIsLocalized,
-                           message: message,
-                           messageIsLocalized: messageIsLocalized,
-                           withMessageArgument: messageArgument,
-                           attributedMessage: attributedMessage,
-                           button: okButton,
-                           preferredStyle: style,
-                           popoverSourceView: popoverSourceView,
-                           popoverBarButtonItem: popoverBarButtonItem,
-                           popoverArrowDirections: popoverArrowDirections,
-                           confirm: confirm)
+            builder(title: alertTitle,
+                    titleIsLocalized: titleIsLocalized,
+                    message: message,
+                    messageIsLocalized: messageIsLocalized,
+                    withMessageArgument: messageArgument,
+                    attributedMessage: attributedMessage,
+                    button: okButton,
+                    preferredStyle: style,
+                    popoverSourceView: popoverSourceView,
+                    popoverBarButtonItem: popoverBarButtonItem,
+                    popoverArrowDirections: popoverArrowDirections,
+                    confirm: confirm)
         }
 
         public class func confirmAlert(title alertTitle: String? = nil,
@@ -144,13 +144,13 @@
         }
 
         public class func passwordAlert(title: String, message: String, submit: @escaping (_ value: String) -> Void, cancel: (() -> Void)? = nil) -> UIAlertController {
-            return promptAlert(title: title,
-                               message: message,
-                               placeholder: "ACCESS_CODE".localized,
-                               validationRule: .nonEmpty,
-                               textFieldConfiguration: { $0.isSecureTextEntry = true },
-                               submit: { submit($0) },
-                               cancel: cancel)
+            promptAlert(title: title,
+                        message: message,
+                        placeholder: "ACCESS_CODE".localized,
+                        validationRule: .nonEmpty,
+                        textFieldConfiguration: { $0.isSecureTextEntry = true },
+                        submit: { submit($0) },
+                        cancel: cancel)
         }
 
         public class func promptAlert(title: String,
@@ -181,7 +181,7 @@
                 // MARK: UITextFieldDelegate
 
                 func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-                    return textFieldShouldReturn(textField)
+                    textFieldShouldReturn(textField)
                 }
             }
 

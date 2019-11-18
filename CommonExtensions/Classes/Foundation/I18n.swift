@@ -14,7 +14,7 @@ extension String {
      :returns: The localized string
      */
     public var localized: String {
-        return NSLocalizedString(self, comment: "")
+        NSLocalizedString(self, comment: "")
     }
 
     /**
@@ -23,7 +23,7 @@ extension String {
      :returns: The localized string
      */
     public var localizedUppercase: String {
-        return localized.uppercased(with: Locale.current)
+        localized.uppercased(with: Locale.current)
     }
 
     /**
@@ -32,7 +32,7 @@ extension String {
      :returns: The localized string
      */
     public func localizedWithArg(_ arg: String?) -> String {
-        return String(format: localized, arg ?? "")
+        String(format: localized, arg ?? "")
     }
 
     /**
@@ -43,7 +43,7 @@ extension String {
      :returns: The localized string
      */
     public func localizedWithArgs(_ args: [String?]) -> String {
-        return String(format: localized, arguments: args.map { $0 ?? "" })
+        String(format: localized, arguments: args.map { $0 ?? "" })
     }
 
     /**
@@ -74,6 +74,6 @@ extension String {
      :returns: The localized country name
      */
     public var countryNameFromISOCode: String? {
-        return Locale.current.localizedString(forRegionCode: self)
+        Locale.current.localizedString(forRegionCode: self)
     }
 }

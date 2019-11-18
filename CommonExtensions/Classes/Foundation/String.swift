@@ -12,13 +12,13 @@ import Foundation
 
 extension String {
     public var trimmedLowercasedDiacriticsInsensitive: String {
-        return trimmingCharacters(in: .whitespacesAndNewlines)
+        trimmingCharacters(in: .whitespacesAndNewlines)
             .lowercased(with: Locale.current)
             .folding(options: .diacriticInsensitive, locale: .current)
     }
 
     public func isSameCaseAndDiacriticsInsensitive(as other: String) -> Bool {
-        return trimmedLowercasedDiacriticsInsensitive == other.trimmedLowercasedDiacriticsInsensitive
+        trimmedLowercasedDiacriticsInsensitive == other.trimmedLowercasedDiacriticsInsensitive
     }
 
     public enum ValidationRule {
@@ -110,7 +110,7 @@ extension String {
     #endif
 
     public func stripTags() -> String {
-        return replacingOccurrences(of: "<br\\s*/?>|</p>|</ul>|</li>", with: "\n", options: .regularExpression)
+        replacingOccurrences(of: "<br\\s*/?>|</p>|</ul>|</li>", with: "\n", options: .regularExpression)
             .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
             .replacingOccurrences(of: "&nbsp;", with: "")
             .replacingOccurrences(of: "&amp;", with: "&")
@@ -120,6 +120,6 @@ extension String {
 
 extension String.Index {
     public func advance(by offset: Int, for string: String) -> String.Index {
-        return string.index(self, offsetBy: offset)
+        string.index(self, offsetBy: offset)
     }
 }
