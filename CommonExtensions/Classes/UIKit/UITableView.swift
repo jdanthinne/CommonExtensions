@@ -26,6 +26,15 @@
             return cell
         }
 
+        public func configure<T: SelfConfiguringHeaderFooterView>(_ viewType: T.Type, with model: T.ViewModel) -> T {
+            guard let view = dequeueReusableHeaderFooterView(withIdentifier: viewType.reuseIdentifier) as? T else {
+                fatalError("Unable to dequeue \(viewType)")
+            }
+
+            view.configure(with: model)
+            return view
+        }
+
         public func deselectSelectedRows() {
             indexPathsForSelectedRows?.forEach { self.deselectRow(at: $0, animated: true) }
         }

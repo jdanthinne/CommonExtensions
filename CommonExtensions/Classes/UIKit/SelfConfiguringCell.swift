@@ -19,3 +19,16 @@ extension SelfConfiguringCell {
         // No config needed by default
     }
 }
+
+public protocol SelfConfiguringHeaderFooterView {
+    associatedtype ViewModel
+
+    static var reuseIdentifier: String { get }
+    func configure(with model: ViewModel)
+}
+
+extension SelfConfiguringHeaderFooterView {
+    public func configure(with model: ViewModel) {
+        // No config needed by default
+    }
+}
