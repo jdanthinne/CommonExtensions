@@ -118,7 +118,7 @@
 
             if let sourceView = popoverSourceView {
                 alert.popoverPresentationController?.sourceView = sourceView
-                alert.popoverPresentationController?.sourceRect = CGRect(x: sourceView.frame.width / 2, y: 0, width: 1, height: 1)
+                alert.popoverPresentationController?.sourceRect = sourceView.bounds
             } else if let barButtonItem = popoverBarButtonItem {
                 alert.popoverPresentationController?.barButtonItem = barButtonItem
             }
