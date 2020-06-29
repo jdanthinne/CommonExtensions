@@ -9,8 +9,8 @@
     import UIKit
 
     extension UIColor {
-        public convenience init(red: Int, green: Int, blue: Int, alpha: CGFloat = 1) {
-            self.init(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: alpha)
+        public convenience init(red255: Int, green255: Int, blue255: Int, alpha: CGFloat = 1) {
+            self.init(red: CGFloat(red255) / 255, green: CGFloat(green255) / 255, blue: CGFloat(blue255) / 255, alpha: alpha)
         }
 
         public convenience init(hex: String) {
