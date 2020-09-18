@@ -9,13 +9,17 @@
     import UIKit
 
     extension UICollectionView {
-        public func register(cellWithReuseIdentifiers names: [String]) {
-            names.forEach { self.register(UINib(nibName: $0, bundle: nil), forCellWithReuseIdentifier: $0) }
+        public func register<T: SelfConfiguringCell>(selfConfiguringCells types: [T.Type]) {
+            types.forEach { self.register(UINib(nibName: $0.reuseIdentifier, bundle: nil),
+                                          forCellWithReuseIdentifier: $0.reuseIdentifier) }
         }
 
-        public func register(supplementaryViewOfKind kind: String, withReuseIdentifiers names: [String]) {
-            names.forEach {
-                self.register(UINib(nibName: $0, bundle: nil), forSupplementaryViewOfKind: kind, withReuseIdentifier: $0)
+        public func register<T: SelfConfiguringCell>(supplementaryViewOfKind kind: String,
+                                                     withTypes types: [T.Type]) {
+            types.forEach {
+                self.register(UINib(nibName: $0.reuseIdentifier, bundle: nil),
+                              forSupplementaryViewOfKind: kind,
+                              withReuseIdentifier: $0.reuseIdentifier)
             }
         }
 
@@ -26,6 +30,17 @@
 
             cell.configure(with: model)
             return cell
+        }
+        
+        public func configure<T: SelfConfiguringCollectionReusableView>(_ cellType: T.Type, ofKind kind: String, with model: T.ViewModel, for indexPath: IndexPath) -> T {
+            guard let view = dequeueReusableSupplementaryView(ofKind: kind,
+                                                              withReuseIdentifier: cellType.reuseIdentifier,
+                                                              for: indexPath) as? T else {
+                fatalError("Unable to dequeue \(cellType)")
+            }
+
+            view.configure(with: model)
+            return view
         }
 
         public func deselectSelectedItems(animated: Bool = true) {

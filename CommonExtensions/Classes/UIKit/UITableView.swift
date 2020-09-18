@@ -9,12 +9,16 @@
     import UIKit
 
     extension UITableView {
-        public func register(cellsWithReuseIdentifiers names: [String]) {
-            names.forEach { self.register(UINib(nibName: $0, bundle: nil), forCellReuseIdentifier: $0) }
+        public func register<T: SelfConfiguringCell>(selfConfiguringCells types: [T.Type]) {
+            types.forEach {
+                self.register(UINib(nibName: $0.reuseIdentifier, bundle: nil),
+                              forCellReuseIdentifier: $0.reuseIdentifier)
+            }
         }
 
-        public func register(headerFooterWithReuseIdentifiers names: [String]) {
-            names.forEach { self.register(UINib(nibName: $0, bundle: nil), forHeaderFooterViewReuseIdentifier: $0) }
+        public func register<T: SelfConfiguringCell>(selfConfiguringHeaderFooter types: [T.Type]) {
+            types.forEach { self.register(UINib(nibName: $0.reuseIdentifier, bundle: nil),
+                                          forHeaderFooterViewReuseIdentifier: $0.reuseIdentifier) }
         }
 
         public func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with model: T.CellModel, for indexPath: IndexPath) -> T {
