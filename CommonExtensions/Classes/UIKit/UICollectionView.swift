@@ -22,7 +22,7 @@
             }
         }
 
-        public func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with model: T.CellModel, for indexPath: IndexPath) -> T {
+        public func configure<T: SelfConfiguringView>(_ cellType: T.Type, with model: T.ViewModel, for indexPath: IndexPath) -> T {
             guard let cell = dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
                 fatalError("Unable to dequeue \(cellType)")
             }
@@ -31,7 +31,7 @@
             return cell
         }
 
-        public func configure<T: SelfConfiguringCollectionReusableView>(_ cellType: T.Type, ofKind kind: String, with model: T.ViewModel, for indexPath: IndexPath) -> T {
+        public func configure<T: SelfConfiguringView>(_ cellType: T.Type, ofKind kind: String, with model: T.ViewModel, for indexPath: IndexPath) -> T {
             guard let view = dequeueReusableSupplementaryView(ofKind: kind,
                                                               withReuseIdentifier: cellType.reuseIdentifier,
                                                               for: indexPath) as? T

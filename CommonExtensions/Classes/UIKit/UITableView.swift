@@ -19,8 +19,9 @@
                                           forHeaderFooterViewReuseIdentifier: $0) }
         }
 
-        public func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with model: T.CellModel, for indexPath: IndexPath) -> T {
-            guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
+        public func configure<T: SelfConfiguringView>(_ cellType: T.Type, with model: T.ViewModel, for indexPath: IndexPath) -> T {
+            guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier,
+                                                 for: indexPath) as? T else {
                 fatalError("Unable to dequeue \(cellType)")
             }
 
@@ -28,7 +29,7 @@
             return cell
         }
 
-        public func configure<T: SelfConfiguringHeaderFooterView>(_ viewType: T.Type, with model: T.ViewModel) -> T {
+        public func configure<T: SelfConfiguringView>(_ viewType: T.Type, with model: T.ViewModel) -> T {
             guard let view = dequeueReusableHeaderFooterView(withIdentifier: viewType.reuseIdentifier) as? T else {
                 fatalError("Unable to dequeue \(viewType)")
             }
