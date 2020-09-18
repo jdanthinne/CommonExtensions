@@ -20,7 +20,8 @@
                                       popoverSourceView: UIView? = nil,
                                       popoverBarButtonItem: UIBarButtonItem? = nil,
                                       popoverArrowDirections: UIPopoverArrowDirection = [.up],
-                                      confirm: (() -> Void)? = nil) -> UIAlertController {
+                                      confirm: (() -> Void)? = nil) -> UIAlertController
+        {
             builder(title: alertTitle,
                     titleIsLocalized: titleIsLocalized,
                     message: message,
@@ -51,7 +52,8 @@
                                        popoverBarButtonItem: UIBarButtonItem? = nil,
                                        popoverArrowDirections: UIPopoverArrowDirection = [.up],
                                        confirm: (() -> Void)? = nil,
-                                       cancel: (() -> Void)? = nil) -> UIAlertController {
+                                       cancel: (() -> Void)? = nil) -> UIAlertController
+        {
             let cancelButton = cancelButton ?? "Cancel"
 
             return builder(title: alertTitle,
@@ -89,7 +91,8 @@
                                    popoverBarButtonItem: UIBarButtonItem? = nil,
                                    popoverArrowDirections: UIPopoverArrowDirection = [.up],
                                    confirm: (() -> Void)? = nil,
-                                   cancel: (() -> Void)? = nil) -> UIAlertController {
+                                   cancel: (() -> Void)? = nil) -> UIAlertController
+        {
             var finalTitle: String?
             if let alertTitle = alertTitle {
                 if titleIsLocalized {
@@ -161,7 +164,8 @@
                                       validationRule: String.ValidationRule,
                                       textFieldConfiguration: ((UITextField) -> Void)? = nil,
                                       submit: @escaping (_ value: String) -> Void,
-                                      cancel: (() -> Void)? = nil) -> UIAlertController {
+                                      cancel: (() -> Void)? = nil) -> UIAlertController
+        {
             class TextFieldObserver: NSObject, UITextFieldDelegate {
                 let textFieldValueChanged: (UITextField) -> Void
                 let textFieldShouldReturn: (UITextField) -> Bool
@@ -220,7 +224,7 @@
                                                       },
                                                       shouldReturn: { textField in
                                                           (textField.text ?? "").isValid(rule: validationRule)
-                })
+                                                      })
             })
 
             mainAction.isEnabled = (alert.textFields?.first?.text ?? "").isValid(rule: validationRule)
@@ -234,7 +238,8 @@
                                      preferredContentSize: CGSize,
                                      defaultActionTitle: String,
                                      confirm: @escaping (_ action: UIAlertAction) -> Void,
-                                     cancel: ((_ action: UIAlertAction) -> Void)? = nil) -> UIAlertController {
+                                     cancel: ((_ action: UIAlertAction) -> Void)? = nil) -> UIAlertController
+        {
             let pickerVC = UIViewController()
             pickerVC.preferredContentSize = preferredContentSize
             pickerVC.view.addSubview(view)

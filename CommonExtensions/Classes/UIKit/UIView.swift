@@ -20,7 +20,8 @@
         public func addRoundedBorder(color: UIColor,
                                      width: CGFloat = 1,
                                      cornerRadius: CGFloat,
-                                     lineDashPattern: [NSNumber]? = nil) {
+                                     lineDashPattern: [NSNumber]? = nil)
+        {
             let rect = CGRect(x: 0.5, y: 0.5, width: bounds.width - 1, height: bounds.height - 1)
             let borderPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
 

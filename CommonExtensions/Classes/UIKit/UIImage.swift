@@ -38,7 +38,7 @@
             UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
 
             let locations: [CGFloat] = [0, 1]
-            let colors: CFArray = gradient.map { $0.cgColor } as CFArray
+            let colors: CFArray = gradient.map(\.cgColor) as CFArray
 
             guard let context = UIGraphicsGetCurrentContext(),
                 let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),

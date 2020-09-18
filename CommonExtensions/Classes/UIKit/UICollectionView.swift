@@ -15,7 +15,8 @@
         }
 
         public func register<T: SelfConfiguringCell>(supplementaryViewOfKind kind: String,
-                                                     withTypes types: [T.Type]) {
+                                                     withTypes types: [T.Type])
+        {
             types.forEach {
                 self.register(UINib(nibName: $0.reuseIdentifier, bundle: nil),
                               forSupplementaryViewOfKind: kind,
@@ -31,11 +32,12 @@
             cell.configure(with: model)
             return cell
         }
-        
+
         public func configure<T: SelfConfiguringCollectionReusableView>(_ cellType: T.Type, ofKind kind: String, with model: T.ViewModel, for indexPath: IndexPath) -> T {
             guard let view = dequeueReusableSupplementaryView(ofKind: kind,
                                                               withReuseIdentifier: cellType.reuseIdentifier,
-                                                              for: indexPath) as? T else {
+                                                              for: indexPath) as? T
+            else {
                 fatalError("Unable to dequeue \(cellType)")
             }
 
@@ -67,7 +69,7 @@
 
     // Source: https://stackoverflow.com/a/51389412/3675395
     public class TopAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
-        public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
             let attributes = super.layoutAttributesForElements(in: rect)?
                 .map { $0.copy() } as? [UICollectionViewLayoutAttributes]
 

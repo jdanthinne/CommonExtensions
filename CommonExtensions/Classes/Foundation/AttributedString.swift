@@ -30,7 +30,8 @@ extension NSMutableAttributedString {
     public func setParagraph(spacing: CGFloat = 0,
                              lineSpacing: CGFloat = 0,
                              lineHeightMultiple: CGFloat = 0,
-                             alignment: NSTextAlignment = .natural) {
+                             alignment: NSTextAlignment = .natural)
+    {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
         paragraphStyle.paragraphSpacing = spacing

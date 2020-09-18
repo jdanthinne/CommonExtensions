@@ -12,7 +12,8 @@
         public func setViewControllersSafely(_ viewControllers: [UIViewController]?,
                                              direction: UIPageViewController.NavigationDirection,
                                              animated: Bool,
-                                             completion: ((Bool) -> Void)? = nil) {
+                                             completion: ((Bool) -> Void)? = nil)
+        {
             guard animated else {
                 DispatchQueue.main.async {
                     self.setViewControllers(viewControllers, direction: direction, animated: false, completion: completion)

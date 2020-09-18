@@ -15,7 +15,7 @@
             didSet { invalidateIntrinsicContentSize() }
         }
 
-        open override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        override open func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
             let insetRect = bounds.inset(by: textInsets)
             let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
             let invertedInsets = UIEdgeInsets(top: -textInsets.top,
@@ -25,7 +25,7 @@
             return textRect.inset(by: invertedInsets)
         }
 
-        open override func drawText(in rect: CGRect) {
+        override open func drawText(in rect: CGRect) {
             super.drawText(in: rect.inset(by: textInsets))
         }
     }

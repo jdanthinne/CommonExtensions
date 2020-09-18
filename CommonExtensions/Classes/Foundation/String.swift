@@ -90,7 +90,8 @@ extension String {
                                withLineSpacing lineSpace: CGFloat = 0,
                                withLineHeightMultiple lineHeightMultiple: CGFloat = 0,
                                withParagraphSpacing paragraphSpacing: CGFloat = 0,
-                               maxLines: Int = 0) -> CGRect {
+                               maxLines: Int = 0) -> CGRect
+        {
             var attributes: [NSAttributedString.Key: Any] = [.font: font]
 
             let bodyParagraphStyle = NSMutableParagraphStyle()
