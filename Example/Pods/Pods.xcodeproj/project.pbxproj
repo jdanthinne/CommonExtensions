@@ -31,7 +31,6 @@
 		377B7B2820135686005152D3 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B2720135686005152D3 /* UITableView.swift */; };
 		377B7B2A2013569E005152D3 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377B7B292013569E005152D3 /* UICollectionView.swift */; };
 		378395662359AB46009E716B /* SelfConfiguringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378395652359AB46009E716B /* SelfConfiguringView.swift */; };
-		378B670C20150B02002F4072 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670B20150B02002F4072 /* UIPageViewController.swift */; };
 		378B670E20150B46002F4072 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B670D20150B46002F4072 /* AttributedString.swift */; };
 		3794E46A2068D72400F30C18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794E4682068D72400F30C18 /* Alerts.swift */; };
 		3794E46B2068D72400F30C18 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794E4692068D72400F30C18 /* EdgeInsetsLabel.swift */; };
@@ -81,7 +80,6 @@
 		377B7B2720135686005152D3 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		377B7B292013569E005152D3 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		378395652359AB46009E716B /* SelfConfiguringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringView.swift; sourceTree = "<group>"; };
-		378B670B20150B02002F4072 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		378B670D20150B46002F4072 /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 		3794E4682068D72400F30C18 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		3794E4692068D72400F30C18 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				377B7B1120134513005152D3 /* UIColor.swift */,
 				37ED1AC4204EAA9D005C98EB /* UIEdgeInsets.swift */,
 				375D8D052236704500202BAD /* UIImage.swift */,
-				378B670B20150B02002F4072 /* UIPageViewController.swift */,
 				377B7B212013555B005152D3 /* UIScreen.swift */,
 				377B7B2720135686005152D3 /* UITableView.swift */,
 				377B7B25201355C8005152D3 /* UIView.swift */,
@@ -458,7 +455,6 @@
 			files = (
 				378B670E20150B46002F4072 /* AttributedString.swift in Sources */,
 				B18FC887282A2DC9ABC16A89CAE30D7C /* CommonExtensions-dummy.m in Sources */,
-				378B670C20150B02002F4072 /* UIPageViewController.swift in Sources */,
 				378395662359AB46009E716B /* SelfConfiguringView.swift in Sources */,
 				377B7B1220134513005152D3 /* UIColor.swift in Sources */,
 				37BC99DA21C7B2B8002515C9 /* UIRefreshControll.swift in Sources */,
@@ -578,7 +574,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.8.5;
+				MARKETING_VERSION = 1.8.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.CommonExtensions-macos";
 				PRODUCT_NAME = CommonExtensions;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -609,7 +605,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.8.5;
+				MARKETING_VERSION = 1.8.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.CommonExtensions-macos";
 				PRODUCT_NAME = CommonExtensions;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -771,7 +767,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.8.5;
+				MARKETING_VERSION = 1.8.6;
 				MODULEMAP_FILE = "Target Support Files/CommonExtensions/CommonExtensions.modulemap";
 				PRODUCT_NAME = CommonExtensions;
 				SDKROOT = iphoneos;
@@ -804,7 +800,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.8.5;
+				MARKETING_VERSION = 1.8.6;
 				MODULEMAP_FILE = "Target Support Files/CommonExtensions/CommonExtensions.modulemap";
 				PRODUCT_NAME = CommonExtensions;
 				SDKROOT = iphoneos;
