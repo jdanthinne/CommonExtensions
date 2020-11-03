@@ -111,7 +111,8 @@ extension String {
     #endif
 
     public func stripTags() -> String {
-        replacingOccurrences(of: "<br\\s*/?>|</p>|</ul>|</li>", with: "\n", options: .regularExpression)
+        replacingOccurrences(of: "<br\\s*/?>|</li>", with: "\n", options: .regularExpression)
+            .replacingOccurrences(of: "</p>|</ul>", with: "\n\n", options: .regularExpression)
             .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
             .replacingOccurrences(of: "&nbsp;", with: "")
             .replacingOccurrences(of: "&amp;", with: "&")

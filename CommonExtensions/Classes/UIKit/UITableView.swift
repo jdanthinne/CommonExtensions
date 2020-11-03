@@ -21,7 +21,8 @@
 
         public func configure<T: SelfConfiguringView>(_ cellType: T.Type, with model: T.ViewModel, for indexPath: IndexPath) -> T {
             guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier,
-                                                 for: indexPath) as? T else {
+                                                 for: indexPath) as? T
+            else {
                 fatalError("Unable to dequeue \(cellType)")
             }
 
